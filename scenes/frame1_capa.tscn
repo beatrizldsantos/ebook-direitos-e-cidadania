@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://m375as3rko2b"]
+
+[ext_resource type="Texture2D" uid="uid://b3oody5sgptpm" path="res://assets/images/Frame 1 - Capa.png" id="1_vby5u"]
+[ext_resource type="Texture2D" uid="uid://7r70t6s6ssnk" path="res://assets/button/som_liga.png" id="2_cl6q0"]
+[ext_resource type="Texture2D" uid="uid://bp6c1kg4x7y7p" path="res://assets/button/som_desliga.png" id="3_j0y2h"]
+[ext_resource type="Texture2D" uid="uid://c44a0li12xthv" path="res://assets/button/prox.png" id="4_v1fxu"]
+[ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/buttons.gd" id="5_0hnlr"]
+
+[node name="Frame1Capa_tscn" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -2.0
+offset_right = 1036.0
+offset_bottom = 700.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 1026.0
+offset_bottom = 768.0
+texture = ExtResource("1_vby5u")
+metadata/_edit_lock_ = true
+
+[node name="GridContainer" type="GridContainer" parent="Control"]
+layout_mode = 0
+offset_left = 890.0
+offset_top = 32.0
+offset_right = 999.0
+offset_bottom = 151.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/GridContainer"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("2_cl6q0")
+texture_pressed = ExtResource("3_j0y2h")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control"]
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+offset_left = 395.0
+offset_top = 652.0
+offset_right = 576.0
+offset_bottom = 706.0
+
+[node name="Button" type="Button" parent="BoxContainer"]
+layout_mode = 2
+icon = ExtResource("4_v1fxu")
+flat = true
+script = ExtResource("5_0hnlr")
+
+[connection signal="pressed" from="BoxContainer/Button" to="BoxContainer/Button" method="proxPag"]
