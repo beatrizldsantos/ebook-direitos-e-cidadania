@@ -1,3 +1,4 @@
+# res://autoload/Main.gd  (ou o arquivo do seu Main, que já é Autoload)
 extends Node
 
 var paginas = [
@@ -8,23 +9,25 @@ var paginas = [
 	"res://scenes/frame5_cidFormal.tscn",
 	"res://scenes/frame6_participSocial.tscn",
 	"res://scenes/frame7_futuro.tscn",
-	"res://scenes/frame8_contracapa.tscn"
+    "res://scenes/frame8_contracapa.tscn"
 ]
-var pagina_atual = 0
 
-func proxima_pagina():
-	print(pagina_atual)
-	if pagina_atual < paginas.size() - 1:
-		pagina_atual += 1
-		get_tree().change_scene_to_file(paginas[pagina_atual])
+var pagina_atual := 0
 
-func pagina_anterior():
-	print(pagina_atual)
-	if pagina_atual > 0:
-		pagina_atual -= 1
-		get_tree().change_scene_to_file(paginas[pagina_atual])
+func _go_to_page(index: int) -> void:
+	pagina_atual = clamp(index, 0, paginas.size() - 1)
 
-func pagina_inicial():
-	print(pagina_atual)
-	pagina_atual = 0
+	AudioManager.play_for_page(pagina_atual)
+	
 	get_tree().change_scene_to_file(paginas[pagina_atual])
+
+func proxima_pagina() -> void:
+	if pagina_atual < paginas.size() - 1:
+		_go_to_page(pagina_atual + 1)
+
+func pagina_anterior() -> void:
+	if pagina_atual > 0:
+		_go_to_page(pagina_atual - 1)
+
+func pagina_inicial() -> void:
+	_go_to_page(0)

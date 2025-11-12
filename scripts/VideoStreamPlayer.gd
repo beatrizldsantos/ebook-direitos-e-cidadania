@@ -23,7 +23,7 @@ func _input(event):
 				else:
 					video_stream_player.play()
 
-			# ARRASTAR PARA A ESQUERDA = STOP
+			
 			elif delta.x < -50:
 				video_stream_player.stop()
 
