@@ -5,10 +5,7 @@ var touch_start_pos: Vector2
 
 func _ready():
 	video_stream_player.stop()
-	
-	# SE O ÁUDIO FOR LIGADO → PARE O VÍDEO
 	AudioManager.audio_forced_on.connect(_on_audio_forced_on)
-
 
 func _input(event):
 	if event is InputEventScreenTouch:
@@ -20,31 +17,33 @@ func _input(event):
 
 			# TAP = play/pause
 			if delta.length() < 20:
+
 				if video_stream_player.is_playing():
-
 					video_stream_player.paused = !video_stream_player.paused
-
-					if video_stream_player.paused:
-						AudioManager.pause_current()
-					else:
-						AudioManager.pause_current()
-						
-				else:
-					video_stream_player.play()
 					AudioManager.pause_current()
+
+				else:
+					if AudioManager.is_enabled:
+						AudioManager.pause_current()
+
+					video_stream_player.play()
 
 			# deslizar para esquerda = stop
 			elif delta.x < -50:
 				video_stream_player.stop()
-				AudioManager.resume_current()
 
-			# deslizar para cima = reiniciar
+				if AudioManager.is_enabled:
+					AudioManager.resume_current()
+
 			elif delta.y < -50:
 				video_stream_player.stop()
+
+				if AudioManager.is_enabled:
+					AudioManager.pause_current()
+
 				video_stream_player.play()
-				AudioManager.pause_current()
 
 func _on_audio_forced_on() -> void:
-	# Se o áudio foi ligado → parar vídeo imediatamente
+	# Se o vídeo estiver tocando, NÃO toca áudio e NÃO pausa vídeo
 	if video_stream_player.is_playing() and not video_stream_player.paused:
-		video_stream_player.stop()
+		return
