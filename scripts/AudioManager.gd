@@ -1,6 +1,7 @@
 extends Node
 
 signal enabled_changed(is_enabled: bool)
+signal audio_forced_on 
 
 var is_enabled: bool = true
 var current_page_index: int = 0
@@ -29,14 +30,17 @@ func _ready() -> void:
 func set_enabled(value: bool) -> void:
 	if is_enabled == value:
 		return
+
 	is_enabled = value
 	_apply_enabled_state()
 	emit_signal("enabled_changed", is_enabled)
 
 	if is_enabled:
+		emit_signal("audio_forced_on")  # <-- AVISA TUDO
 		play_for_page(current_page_index)
 	else:
 		stop()
+
 
 func toggle() -> void:
 	set_enabled(!is_enabled)
@@ -63,3 +67,13 @@ func stop() -> void:
 
 func refresh_current_page() -> void:
 	play_for_page(current_page_index)
+	
+func pause_current() -> void:
+	if _player.playing:
+		_player.stream_paused = true
+
+func resume_current() -> void:
+	if not is_enabled:
+		return
+	if _player.stream:
+		_player.stream_paused = false
