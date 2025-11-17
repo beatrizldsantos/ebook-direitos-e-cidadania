@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+SoundHud="*res://scenes/SoundHUD.tscn"
 AudioManager="*res://scripts/AudioManager.gd"
 Main="*res://scripts/Main.gd"
 

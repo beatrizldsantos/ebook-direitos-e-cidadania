@@ -14,6 +14,9 @@ var paginas = [
 
 var pagina_atual := 0
 
+func _ready() -> void:
+	AudioManager.play_for_page(0)
+
 func _go_to_page(index: int) -> void:
 	pagina_atual = clamp(index, 0, paginas.size() - 1)
 
