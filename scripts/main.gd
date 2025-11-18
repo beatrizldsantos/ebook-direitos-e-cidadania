@@ -1,4 +1,3 @@
-# res://autoload/Main.gd  (ou o arquivo do seu Main, que já é Autoload)
 extends Node
 
 var paginas = [

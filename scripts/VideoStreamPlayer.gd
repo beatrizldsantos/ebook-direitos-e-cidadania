@@ -1,49 +1,91 @@
 extends VideoStreamPlayer
 
 @onready var video_stream_player: VideoStreamPlayer = $"."
+@onready var panel := get_tree().get_current_scene().get_node("Control/Panel")
+
 var touch_start_pos: Vector2
 
 func _ready():
+	add_to_group("video_group")
 	video_stream_player.stop()
 	AudioManager.audio_forced_on.connect(_on_audio_forced_on)
+	AudioManager.enabled_changed.connect(_on_audio_toggled)
+
 
 func _input(event):
+
 	if event is InputEventScreenTouch:
+		if not panel.get_global_rect().has_point(event.position):
+			return
+
 		if event.pressed:
 			touch_start_pos = event.position
 		else:
-			var touch_end_pos = event.position
-			var delta = touch_end_pos - touch_start_pos
+			_handle_tap_or_swipe(event.position)
 
-			# TAP = play/pause
-			if delta.length() < 20:
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if not panel.get_global_rect().has_point(event.position):
+			return
 
-				if video_stream_player.is_playing():
-					video_stream_player.paused = !video_stream_player.paused
-					AudioManager.pause_current()
+		if event.pressed:
+			touch_start_pos = event.position
+		else:
+			_handle_tap_or_swipe(event.position)
 
-				else:
-					if AudioManager.is_enabled:
-						AudioManager.pause_current()
 
-					video_stream_player.play()
+func _handle_tap_or_swipe(end_pos: Vector2) -> void:
+	var delta = end_pos - touch_start_pos
 
-			# deslizar para esquerda = stop
-			elif delta.x < -50:
-				video_stream_player.stop()
+	if delta.length() < 20:
 
-				if AudioManager.is_enabled:
-					AudioManager.resume_current()
+		if video_stream_player.is_playing():
 
-			elif delta.y < -50:
-				video_stream_player.stop()
+			video_stream_player.paused = not video_stream_player.paused
 
-				if AudioManager.is_enabled:
-					AudioManager.pause_current()
+			if video_stream_player.paused:
+				return
 
-				video_stream_player.play()
+			if not AudioManager.is_enabled:
+				video_stream_player.paused = true
+				return
+
+			AudioManager.stop()
+			return
+
+		else:
+			if not AudioManager.is_enabled:
+				return
+
+			AudioManager.stop()
+			video_stream_player.play()
+			return
+
+	elif delta.x < -50:
+		var was_playing := video_stream_player.is_playing()
+		video_stream_player.stop()
+
+		if was_playing and AudioManager.is_enabled:
+			AudioManager.play_for_page(AudioManager.current_page_index)
+
+		return
+
+	elif delta.y < -50:
+
+		if not AudioManager.is_enabled:
+			return
+
+		video_stream_player.stop()
+		AudioManager.stop()
+		video_stream_player.play()
+		return
+
 
 func _on_audio_forced_on() -> void:
-	# Se o vídeo estiver tocando, NÃO toca áudio e NÃO pausa vídeo
 	if video_stream_player.is_playing() and not video_stream_player.paused:
-		return
+		video_stream_player.stop()
+
+
+func _on_audio_toggled(value: bool) -> void:
+	if not value:
+		if video_stream_player.is_playing() or video_stream_player.paused:
+			video_stream_player.stop()
