@@ -38,7 +38,6 @@ func _handle_tap_or_swipe(end_pos: Vector2) -> void:
 				AudioManager.video_playing = false
 				# NÃO chamar AudioManager.resume_current()
 
-			# voltou a tocar → garante áudio da tela pausado
 			else:
 				AudioManager.video_playing = true
 				AudioManager.pause_current()
