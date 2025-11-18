@@ -55,7 +55,9 @@ func set_enabled(value: bool) -> void:
 
 func toggle() -> void:
 	set_enabled(!is_enabled)
-
+	
+func force_stop():
+	_player.stop()
 
 func _apply_enabled_state() -> void:
 	if not is_enabled:
