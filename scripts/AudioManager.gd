@@ -1,10 +1,13 @@
 extends Node
 
 signal enabled_changed(is_enabled: bool)
-signal audio_forced_on 
+signal audio_forced_on
 
 var is_enabled: bool = true
 var current_page_index: int = 0
+
+# controla se o vídeo da página atual está rodando
+var video_playing: bool = false  
 
 var _player: AudioStreamPlayer
 
@@ -27,6 +30,7 @@ func _ready() -> void:
 	_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	_apply_enabled_state()
 
+
 func set_enabled(value: bool) -> void:
 	if is_enabled == value:
 		return
@@ -36,8 +40,15 @@ func set_enabled(value: bool) -> void:
 	emit_signal("enabled_changed", is_enabled)
 
 	if is_enabled:
-		emit_signal("audio_forced_on")  # <-- AVISA TUDO
+		emit_signal("audio_forced_on")
+
+		# Se vídeo está rodando → parar vídeo (regra 2)
+		if video_playing:
+			get_tree().call_group("video_group", "force_video_stop")
+
+		# depois que o vídeo parar, tocar áudio (regra 2)
 		play_for_page(current_page_index)
+
 	else:
 		stop()
 
@@ -45,35 +56,49 @@ func set_enabled(value: bool) -> void:
 func toggle() -> void:
 	set_enabled(!is_enabled)
 
+
 func _apply_enabled_state() -> void:
 	if not is_enabled:
 		stop()
 
+
 func play_for_page(page_index: int) -> void:
 	current_page_index = clamp(page_index, 0, _streams.size() - 1)
+
+	# Vídeo rodando = NUNCA tocar áudio da página 5
+	if video_playing:
+		return
+	
 	if not is_enabled:
 		return
 
 	var stream = _streams[current_page_index]
+
 	if _player.stream != stream:
 		_player.stop()
 		_player.stream = stream
 
 	_player.play()
 
+
 func stop() -> void:
 	if _player.playing:
 		_player.stop()
 
+
 func refresh_current_page() -> void:
 	play_for_page(current_page_index)
-	
+
+
 func pause_current() -> void:
 	if _player.playing:
 		_player.stream_paused = true
 
+
 func resume_current() -> void:
 	if not is_enabled:
+		return
+	if video_playing:
 		return
 	if _player.stream:
 		_player.stream_paused = false
