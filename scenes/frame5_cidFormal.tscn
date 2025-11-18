@@ -1,11 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://lwo0234wpjdx"]
+[gd_scene load_steps=8 format=3 uid="uid://lwo0234wpjdx"]
 
 [ext_resource type="Texture2D" uid="uid://b1vhvebho20h8" path="res://assets/images/Frame 5 - Cidadania formal x Real.png" id="1_iiyad"]
 [ext_resource type="VideoStream" uid="uid://daa13553ox333" path="res://assets/Videos/Cidadania__Lei_vs-.ogv" id="2_1udua"]
 [ext_resource type="Script" uid="uid://bvfg1upqgs68l" path="res://scripts/VideoStreamPlayer.gd" id="3_2qbju"]
 [ext_resource type="Texture2D" uid="uid://cdfopk5gj6w6n" path="res://assets/button/ant_capa.png" id="4_2qbju"]
-[ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/Buttons.gd" id="5_qde3l"]
+[ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/buttons.gd" id="5_qde3l"]
 [ext_resource type="Texture2D" uid="uid://c44a0li12xthv" path="res://assets/button/prox.png" id="6_wif45"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iiyad"]
+bg_color = Color(0.8475616, 0.84102774, 0.9690551, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="Frame2Cidadania_tscn2" type="Node2D"]
 
@@ -14,6 +21,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 1
@@ -23,27 +31,27 @@ anchor_bottom = 19.225
 offset_right = -0.00012207031
 texture = ExtResource("1_iiyad")
 
-[node name="TextureRect" type="TextureRect" parent="Control/TextureRect"]
+[node name="Panel" type="Panel" parent="Control"]
+clip_children = 2
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.1
-anchor_top = 0.324
-anchor_right = 0.91300005
-anchor_bottom = 0.83900005
-offset_left = 0.5
-offset_top = -0.15600586
-offset_right = 0.17492676
-offset_bottom = -0.19104004
+anchor_left = 2.95
+anchor_top = 6.2250004
+anchor_right = 23.175001
+anchor_bottom = 16.2
+offset_top = -1.5258789e-05
+offset_right = -6.1035156e-05
+offset_bottom = -2.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_iiyad")
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control/TextureRect/TextureRect"]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control/Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.005
-offset_left = -2.9999847
-offset_top = -2.0
-offset_right = -4.0
-offset_bottom = 0.019989014
+offset_left = -1.9999847
+offset_top = -1.0
+offset_right = 2.0
 stream = ExtResource("2_1udua")
 expand = true
 script = ExtResource("3_2qbju")
