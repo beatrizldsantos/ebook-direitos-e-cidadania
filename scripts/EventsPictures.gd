@@ -52,8 +52,7 @@ func _indice_por_angulo(angulo: float) -> int:
 		return 4
 
 
-# --- TESTE NO NOTEBOOK ---
-# Use → e ← para mudar imagens
+# TESTE NO NOTEBOOK
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_right"):
 		indice_atual = min(indice_atual + 1, IMAGENS.size() - 1)
