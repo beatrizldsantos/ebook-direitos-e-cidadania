@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://dnqkl8266rihr" path="res://assets/images/Frame 8 - Contra Capa.png" id="1_smeb5"]
 [ext_resource type="Texture2D" uid="uid://cdfopk5gj6w6n" path="res://assets/button/ant_capa.png" id="4_lgo3d"]
-[ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/Buttons.gd" id="5_heciq"]
+[ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/buttons.gd" id="5_heciq"]
 [ext_resource type="Texture2D" uid="uid://bo2i1hk1btnea" path="res://assets/button/volt_inicio.png" id="6_hpes6"]
 
-[node name="Frame2Cidadania_tscn" type="Node2D"]
+[node name="Frame8_tscn" type="Node2D"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

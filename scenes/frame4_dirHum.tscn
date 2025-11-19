@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://uh7o2qos6rrc" path="res://assets/images/Frame 4 - Direitos Humanos.png" id="1_njmjs"]
 [ext_resource type="Texture2D" uid="uid://cdfopk5gj6w6n" path="res://assets/button/ant_capa.png" id="4_sks6p"]
-[ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/Buttons.gd" id="5_ap47d"]
+[ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/buttons.gd" id="5_ap47d"]
 [ext_resource type="Texture2D" uid="uid://c44a0li12xthv" path="res://assets/button/prox.png" id="6_ge64o"]
 
-[node name="Frame2Cidadania_tscn" type="Node2D"]
+[node name="Frame4_tscn" type="Node2D"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

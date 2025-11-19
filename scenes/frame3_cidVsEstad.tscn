@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://cbngxh1wpcbku" path="res://assets/images/Frame 3 - Cidadania no BR vs Estadania.png" id="1_om7ve"]
 [ext_resource type="Texture2D" uid="uid://cdfopk5gj6w6n" path="res://assets/button/ant_capa.png" id="4_tpm8w"]
-[ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/Buttons.gd" id="5_p4wnb"]
+[ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/buttons.gd" id="5_p4wnb"]
 [ext_resource type="Texture2D" uid="uid://c44a0li12xthv" path="res://assets/button/prox.png" id="6_t3mex"]
 
-[node name="Frame2Cidadania_tscn" type="Node2D"]
+[node name="Frame3_tscn" type="Node2D"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

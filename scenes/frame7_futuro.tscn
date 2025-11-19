@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://cr4lb14wtpeep" path="res://assets/images/Frame 7 - O Futuro da Cidadania.png" id="1_yy8fh"]
 [ext_resource type="Texture2D" uid="uid://cdfopk5gj6w6n" path="res://assets/button/ant_capa.png" id="4_vdvws"]
-[ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/Buttons.gd" id="5_bc2i1"]
+[ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/buttons.gd" id="5_bc2i1"]
 [ext_resource type="Texture2D" uid="uid://c44a0li12xthv" path="res://assets/button/prox.png" id="6_y2r1v"]
 
-[node name="Frame2Cidadania_tscn" type="Node2D"]
+[node name="Frame7_tscn" type="Node2D"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

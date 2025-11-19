@@ -4,7 +4,7 @@
 [ext_resource type="VideoStream" uid="uid://daa13553ox333" path="res://assets/Videos/Cidadania__Lei_vs-.ogv" id="2_1udua"]
 [ext_resource type="Script" uid="uid://bvfg1upqgs68l" path="res://scripts/VideoStreamPlayer.gd" id="3_2qbju"]
 [ext_resource type="Texture2D" uid="uid://cdfopk5gj6w6n" path="res://assets/button/ant_capa.png" id="4_2qbju"]
-[ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/Buttons.gd" id="5_qde3l"]
+[ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/buttons.gd" id="5_qde3l"]
 [ext_resource type="Texture2D" uid="uid://c44a0li12xthv" path="res://assets/button/prox.png" id="6_wif45"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iiyad"]
@@ -14,7 +14,7 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[node name="Frame2Cidadania_tscn2" type="Node2D"]
+[node name="Frame5_tscn" type="Node2D"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
