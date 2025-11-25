@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b3oody5sgptpm" path="res://assets/images/Frame 1 - Capa.png" id="1_vby5u"]
 [ext_resource type="Texture2D" uid="uid://c44a0li12xthv" path="res://assets/button/prox.png" id="4_v1fxu"]
-[ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/Buttons.gd" id="5_0hnlr"]
+[ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/buttons.gd" id="5_0hnlr"]
 
 [node name="Frame1Capa_tscn" type="Node2D"]
 

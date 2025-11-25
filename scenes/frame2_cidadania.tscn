@@ -1,23 +1,173 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2cs7o58c4s4x"]
+[gd_scene load_steps=17 format=3 uid="uid://c2cs7o58c4s4x"]
 
+[ext_resource type="Script" uid="uid://cjb37vwdspaog" path="res://scripts/frame 2/frame_2_cidadania.gd" id="1_khcsa"]
 [ext_resource type="Texture2D" uid="uid://dtdm48yhtebik" path="res://assets/images/Frame 2 - O que é Cidadania_.png" id="1_thbsr"]
+[ext_resource type="Texture2D" uid="uid://dkvqskbg8r0wf" path="res://assets/images/Components_Frame 2/Botão Soltar D_Civis.png" id="2_srkrl"]
+[ext_resource type="Texture2D" uid="uid://d2r7aeun4v5uc" path="res://assets/images/Components_Frame 2/Botão Soltar D_Politicos.png" id="3_8bacb"]
+[ext_resource type="Script" uid="uid://seyb1x4cecrk" path="res://scripts/frame 2/Dropzone.gd" id="4_hdsiy"]
+[ext_resource type="Texture2D" uid="uid://b58c6p6tdx5we" path="res://assets/images/Components_Frame 2/Botão Soltar D_Sociais.png" id="4_khcsa"]
 [ext_resource type="Texture2D" uid="uid://cdfopk5gj6w6n" path="res://assets/button/ant_capa.png" id="4_sxjfl"]
 [ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/buttons.gd" id="5_agfjj"]
 [ext_resource type="Texture2D" uid="uid://c44a0li12xthv" path="res://assets/button/prox.png" id="5_e3bs6"]
+[ext_resource type="Texture2D" uid="uid://bipuaaaaoa2ir" path="res://assets/images/Components_Frame 2/Botão Direitos Civis.png" id="5_hdsiy"]
+[ext_resource type="Script" uid="uid://b1e3tleva5dhe" path="res://scripts/frame 2/Cards.gd" id="6_hdsiy"]
+[ext_resource type="Texture2D" uid="uid://bp3fpqj3agsj0" path="res://assets/images/Components_Frame 2/Botão Direitos Sociais.png" id="6_t1bg0"]
+[ext_resource type="Texture2D" uid="uid://c4e41n1fpjukl" path="res://assets/images/Components_Frame 2/Botão Direitos politicos.png" id="7_vtrdf"]
+[ext_resource type="Texture2D" uid="uid://cryibh51d0ryv" path="res://assets/images/Components_Frame 2/2.2_BS_sociais.png" id="8_3voma"]
+[ext_resource type="Texture2D" uid="uid://b1siwtnyuugnw" path="res://assets/images/Components_Frame 2/2.2_BS_politicos.png" id="9_o103n"]
+[ext_resource type="Texture2D" uid="uid://db1v2sc73qq3t" path="res://assets/images/Components_Frame 2/2.2_BS_civis.png" id="10_uvmu2"]
 
 [node name="Frame2_tscn" type="Node2D"]
+script = ExtResource("1_khcsa")
 
-[node name="Control" type="Control" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1024.0
+offset_bottom = 768.0
+texture = ExtResource("1_thbsr")
+metadata/_edit_lock_ = true
+
+[node name="ControlCards" type="Control" parent="."]
 layout_mode = 3
+anchors_preset = 0
+offset_right = 1024.0
+offset_bottom = 768.0
+metadata/_edit_lock_ = true
+
+[node name="DropZone" type="Control" parent="ControlCards"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="DropCivis" type="TextureRect" parent="ControlCards/DropZone"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 10.525
+anchor_top = 7.8
+anchor_right = 14.325
+anchor_bottom = 9.975
+offset_left = -3.05176e-05
+offset_top = 15.0
+offset_bottom = 15.0
+mouse_filter = 0
+texture = ExtResource("2_srkrl")
+script = ExtResource("4_hdsiy")
+accepted_type = "civis"
+frame2_path = NodePath("../../..")
+metadata/_edit_lock_ = true
+
+[node name="DropPoliticos" type="TextureRect" parent="ControlCards/DropZone"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 10.6
+anchor_top = 10.225
+anchor_right = 14.4
+anchor_bottom = 12.2
+offset_left = -8.0
+offset_top = 15.0
+offset_right = 1.0
+offset_bottom = 16.0
+mouse_filter = 0
+texture = ExtResource("3_8bacb")
+script = ExtResource("4_hdsiy")
+accepted_type = "politicos"
+frame2_path = NodePath("../../..")
+metadata/_edit_lock_ = true
+
+[node name="DropSociais" type="TextureRect" parent="ControlCards/DropZone"]
 layout_mode = 0
+offset_left = 417.0
+offset_top = 514.0
+offset_right = 578.0
+offset_bottom = 594.0
+mouse_filter = 0
+texture = ExtResource("4_khcsa")
+script = ExtResource("4_hdsiy")
+accepted_type = "sociais"
+frame2_path = NodePath("../../..")
+metadata/_edit_lock_ = true
+
+[node name="Cards" type="Control" parent="ControlCards"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="CardCivis" type="TextureRect" parent="ControlCards/Cards"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.078
+anchor_top = 0.573
+anchor_right = 0.371
+anchor_bottom = 0.667
+offset_left = 14.128
+offset_top = -0.0640259
+offset_right = 22.096
+offset_bottom = 2.74396
+mouse_filter = 0
+texture = ExtResource("5_hdsiy")
+script = ExtResource("6_hdsiy")
+card_type = "civis"
+metadata/_edit_lock_ = true
+
+[node name="CardSociais" type="TextureRect" parent="ControlCards/Cards"]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 328.0
+offset_right = 402.0
+offset_bottom = 399.0
+mouse_filter = 0
+texture = ExtResource("6_t1bg0")
+script = ExtResource("6_hdsiy")
+card_type = "sociais"
+metadata/_edit_lock_ = true
+
+[node name="CardPoliticos" type="TextureRect" parent="ControlCards/Cards"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 558.0
+offset_right = 403.0
+offset_bottom = 633.0
+mouse_filter = 0
+texture = ExtResource("7_vtrdf")
+script = ExtResource("6_hdsiy")
+card_type = "politicos"
+metadata/_edit_lock_ = true
+
+[node name="Piramide" type="Control" parent="ControlCards"]
+anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_thbsr")
+
+[node name="Base" type="TextureRect" parent="ControlCards/Piramide"]
+visible = false
+layout_mode = 0
+offset_left = 413.0
+offset_top = 510.0
+offset_right = 587.0
+offset_bottom = 575.0
+texture = ExtResource("8_3voma")
+
+[node name="Meio" type="TextureRect" parent="ControlCards/Piramide"]
+visible = false
+layout_mode = 0
+offset_left = 408.0
+offset_top = 433.0
+offset_right = 582.0
+offset_bottom = 498.0
+texture = ExtResource("9_o103n")
+
+[node name="Topo" type="TextureRect" parent="ControlCards/Piramide"]
+visible = false
+layout_mode = 0
+offset_left = 435.0
+offset_top = 359.0
+offset_right = 554.0
+offset_bottom = 423.0
+texture = ExtResource("10_uvmu2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 328.0
