@@ -25,7 +25,6 @@ Main="*res://scripts/Main.gd"
 
 window/size/viewport_width=1024
 window/size/viewport_height=768
-window/size/mode=3
 window/size/resizable=false
 window/size/borderless=true
 window/stretch/mode="canvas_items"

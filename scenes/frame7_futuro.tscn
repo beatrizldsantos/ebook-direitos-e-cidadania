@@ -17,8 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://pmfl7a58vpyn" path="res://assets/images/Components_Frame 7/balaoEstadania.png" id="12_ytrj8"]
 [ext_resource type="Texture2D" uid="uid://drvthp208bwm3" path="res://assets/images/Components_Frame 7/balaoDireitosHumanoos.png" id="14_hfr50"]
 
-[node name="Frame7_tscn" type="Node2D" groups=["page7"]]
+[node name="Frame7_tscn" type="Node2D" node_paths=PackedStringArray("area_limite") groups=["page7"]]
 script = ExtResource("1_vdvws")
+area_limite = NodePath("Interacoes/AreaLimite")
 tex_balao_cidadania = ExtResource("2_ew34d")
 tex_balao_estadania = ExtResource("12_ytrj8")
 tex_balao_direitos = ExtResource("14_hfr50")
@@ -117,6 +118,19 @@ mouse_filter = 0
 texture = ExtResource("11_8kdit")
 stretch_mode = 5
 
+[node name="AreaLimite" type="ReferenceRect" parent="Interacoes"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.0690002
+anchor_top = 5.0670004
+anchor_right = 24.603
+anchor_bottom = 12.521001
+offset_left = -11.76001
+offset_top = -7.680023
+offset_right = 4.880005
+offset_bottom = 4.159973
+border_color = Color(1, 1, 1, 1)
+
 [node name="VBoxContainerBotao" type="VBoxContainer" parent="."]
 offset_left = 328.0
 offset_top = 659.0
@@ -144,10 +158,10 @@ anchor_left = 12.725
 anchor_top = 6.025
 anchor_right = 14.975
 anchor_bottom = 8.275001
-offset_left = 509.0
-offset_top = 241.0
-offset_right = 599.0
-offset_bottom = 331.0
+offset_left = 466.0
+offset_top = 214.0
+offset_right = 556.0
+offset_bottom = 304.0
 texture_normal = ExtResource("11_y0n1r")
 
 [node name="BalaoFeedback" type="TextureRect" parent="DragButton"]
