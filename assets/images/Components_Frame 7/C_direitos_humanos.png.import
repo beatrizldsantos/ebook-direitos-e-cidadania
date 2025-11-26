@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr4lb14wtpeep"
-path="res://.godot/imported/Frame 7 - O Futuro da Cidadania.png-b97028d97fa6ff46b07b7ba4a8afc69d.ctex"
+uid="uid://7hcdbspg4h1u"
+path="res://.godot/imported/C_direitos_humanos.png-e58130fa2e223c051c819bb292a8c691.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Frame 7 - O Futuro da Cidadania.png"
-dest_files=["res://.godot/imported/Frame 7 - O Futuro da Cidadania.png-b97028d97fa6ff46b07b7ba4a8afc69d.ctex"]
+source_file="res://assets/images/Components_Frame 7/C_direitos_humanos.png"
+dest_files=["res://.godot/imported/C_direitos_humanos.png-e58130fa2e223c051c819bb292a8c691.ctex"]
 
 [params]
 

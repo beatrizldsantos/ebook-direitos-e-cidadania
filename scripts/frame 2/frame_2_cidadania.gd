@@ -10,7 +10,7 @@ var placed_sociais := false
 
 
 func _ready():
-	# Começa tudo invisível
+
 	pyramid_base.modulate = Color(1,1,1,0)
 	pyramid_mid.modulate  = Color(1,1,1,0)
 	pyramid_top.modulate  = Color(1,1,1,0)
