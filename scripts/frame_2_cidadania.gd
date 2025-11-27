@@ -3,13 +3,13 @@ extends Node2D
 @onready var piramide_meio = $ControlCards/Piramide/Meio
 @onready var piramide_topo = $ControlCards/Piramide/Topo
 
-func _ready():
+@onready var drop_zones = $ControlCards/DropZone
 
+func _ready():
 	piramide_base.visible = false
 	piramide_meio.visible = false
 	piramide_topo.visible = false
 	
-
 	if has_node("ControlCards"):
 		$ControlCards.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	if has_node("ControlCards/Cards"):
