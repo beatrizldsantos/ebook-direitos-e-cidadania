@@ -1,19 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://bm7dmwaht8a7b"]
+[gd_scene load_steps=12 format=3 uid="uid://bm7dmwaht8a7b"]
 
 [ext_resource type="Texture2D" uid="uid://uh7o2qos6rrc" path="res://assets/images/Frame 4 - Direitos Humanos.png" id="1_njmjs"]
 [ext_resource type="Texture2D" uid="uid://cdfopk5gj6w6n" path="res://assets/button/ant_capa.png" id="4_sks6p"]
 [ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/buttons.gd" id="5_ap47d"]
+[ext_resource type="Script" uid="uid://dqi8p32j3h6ts" path="res://scripts/InteracaoFrame4.gd" id="5_ge64o"]
 [ext_resource type="Texture2D" uid="uid://c44a0li12xthv" path="res://assets/button/prox.png" id="6_ge64o"]
+[ext_resource type="Texture2D" uid="uid://d2q8008qwccbb" path="res://assets/images/Components_Frame 4/Int.png" id="6_wenou"]
+[ext_resource type="Texture2D" uid="uid://cwko4cr867r4n" path="res://assets/images/Components_Frame 4/Saumo.png" id="7_ge64o"]
+[ext_resource type="Texture2D" uid="uid://c4oogbioao0aw" path="res://assets/images/Components_Frame 4/Juslib.png" id="8_wenou"]
+[ext_resource type="Texture2D" uid="uid://r5tc6bpex8ub" path="res://assets/images/Components_Frame 4/JUSeDU.png" id="9_mfytg"]
+[ext_resource type="Texture2D" uid="uid://d37etnd4d51s4" path="res://assets/images/Components_Frame 4/Libermo.png" id="10_fwfyp"]
+[ext_resource type="Texture2D" uid="uid://ct88jov7mc2op" path="res://assets/images/Components_Frame 4/Saedu.png" id="11_mbb47"]
 
 [node name="Frame4_tscn" type="Node2D"]
+script = ExtResource("5_ge64o")
 
-[node name="Control" type="Control" parent="."]
+[node name="Background" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="TextureRect" type="TextureRect" parent="Background"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 25.6
@@ -40,6 +48,71 @@ layout_mode = 2
 icon = ExtResource("6_ge64o")
 flat = true
 script = ExtResource("5_ap47d")
+
+[node name="InteractiveArea" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PentagonContainer" type="Control" parent="InteractiveArea"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Componente_pentagono" type="TextureRect" parent="InteractiveArea/PentagonContainer"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 277.0
+offset_right = 500.0
+offset_bottom = 567.0
+texture = ExtResource("6_wenou")
+metadata/_edit_lock_ = true
+
+[node name="Connections" type="Control" parent="InteractiveArea"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Line_SaudeMoradia" type="TextureRect" parent="InteractiveArea/Connections"]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 345.0
+offset_right = 390.0
+offset_bottom = 498.0
+texture = ExtResource("7_ge64o")
+
+[node name="Line_JusticaLiberdad" type="TextureRect" parent="InteractiveArea/Connections"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 420.0
+offset_right = 237.0
+offset_bottom = 498.0
+texture = ExtResource("8_wenou")
+
+[node name="Line_EducacaoJustica" type="TextureRect" parent="InteractiveArea/Connections"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 399.0
+offset_right = 430.0
+offset_bottom = 401.0
+texture = ExtResource("9_mfytg")
+
+[node name="Line_MoradiaLiberdade" type="TextureRect" parent="InteractiveArea/Connections"]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 518.0
+offset_right = 369.0
+offset_bottom = 521.0
+texture = ExtResource("10_fwfyp")
+
+[node name="Line_EducacaoSaude" type="TextureRect" parent="InteractiveArea/Connections"]
+layout_mode = 0
+offset_left = 331.0
+offset_top = 333.0
+offset_right = 438.0
+offset_bottom = 390.0
+texture = ExtResource("11_mbb47")
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/anterior" to="VBoxContainer/HBoxContainer/anterior" method="pagAnterior"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/proximo" to="VBoxContainer/HBoxContainer/proximo" method="proxPag"]

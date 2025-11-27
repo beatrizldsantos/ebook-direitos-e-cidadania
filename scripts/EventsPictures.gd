@@ -29,7 +29,7 @@ func _physics_process(_delta: float) -> void:
 	elif grav != Vector3.ZERO:
 		angulo = rad_to_deg(atan2(grav.x, grav.y)) * -1.0
 	else:
-		# no notebook normalmente não existe sensor
+		
 		return
 
 	var novo_indice := _indice_por_angulo(angulo)
