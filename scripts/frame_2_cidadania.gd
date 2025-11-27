@@ -1,44 +1,33 @@
-extends Node
-
-@onready var pyramid_base  = $ControlCards/Piramide/Base
-@onready var pyramid_mid   = $ControlCards/Piramide/Meio
-@onready var pyramid_top   = $ControlCards/Piramide/Topo
-
-var placed_civis := false
-var placed_politicos := false
-var placed_sociais := false
-
+extends Node2D
+@onready var piramide_base = $ControlCards/Piramide/Base
+@onready var piramide_meio = $ControlCards/Piramide/Meio
+@onready var piramide_topo = $ControlCards/Piramide/Topo
 
 func _ready():
 
-	pyramid_base.modulate = Color(1,1,1,0)
-	pyramid_mid.modulate  = Color(1,1,1,0)
-	pyramid_top.modulate  = Color(1,1,1,0)
+	piramide_base.visible = false
+	piramide_meio.visible = false
+	piramide_topo.visible = false
+	
 
+	if has_node("ControlCards"):
+		$ControlCards.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	if has_node("ControlCards/Cards"):
+		$ControlCards/Cards.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	if has_node("ControlCards/DropZone"):
+		$ControlCards/DropZone.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-func card_dropped(card_type: String):
-	match card_type:
+func processar_drop_correto(tipo_cartao: String):
+	match tipo_cartao:
 		"civis":
-			placed_civis = true
-			_show_layer(pyramid_base)
-
+			piramide_topo.visible = true
 		"politicos":
-			placed_politicos = true
-			_show_layer(pyramid_mid)
-
+			piramide_meio.visible = true
 		"sociais":
-			placed_sociais = true
-			_show_layer(pyramid_top)
+			piramide_base.visible = true
+	
+	verificar_vitoria()
 
-	_check_complete()
-
-
-func _show_layer(node: TextureRect):
-	var new_color = node.modulate
-	new_color.a = 1.0
-	node.modulate = new_color
-
-
-func _check_complete():
-	if placed_civis and placed_politicos and placed_sociais:
-		print("Pirâmide concluída!")
+func verificar_vitoria():
+	if piramide_base.visible and piramide_meio.visible and piramide_topo.visible:
+		print("A pirâmide está completa.")

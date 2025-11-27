@@ -51,8 +51,7 @@ offset_bottom = 15.0
 mouse_filter = 0
 texture = ExtResource("2_srkrl")
 script = ExtResource("4_hdsiy")
-accepted_type = "civis"
-frame2_path = NodePath("../../..")
+tipo_esperado = "civis"
 metadata/_edit_lock_ = true
 
 [node name="DropPoliticos" type="TextureRect" parent="ControlCards/DropZone"]
@@ -69,8 +68,7 @@ offset_bottom = 16.0
 mouse_filter = 0
 texture = ExtResource("3_8bacb")
 script = ExtResource("4_hdsiy")
-accepted_type = "politicos"
-frame2_path = NodePath("../../..")
+tipo_esperado = "politicos"
 metadata/_edit_lock_ = true
 
 [node name="DropSociais" type="TextureRect" parent="ControlCards/DropZone"]
@@ -82,8 +80,7 @@ offset_bottom = 594.0
 mouse_filter = 0
 texture = ExtResource("4_khcsa")
 script = ExtResource("4_hdsiy")
-accepted_type = "sociais"
-frame2_path = NodePath("../../..")
+tipo_esperado = "sociais"
 metadata/_edit_lock_ = true
 
 [node name="Cards" type="Control" parent="ControlCards"]
@@ -110,7 +107,7 @@ offset_bottom = 2.74396
 mouse_filter = 0
 texture = ExtResource("5_hdsiy")
 script = ExtResource("6_hdsiy")
-card_type = "civis"
+tipo_cartao = "civis"
 metadata/_edit_lock_ = true
 
 [node name="CardSociais" type="TextureRect" parent="ControlCards/Cards"]
@@ -122,7 +119,7 @@ offset_bottom = 399.0
 mouse_filter = 0
 texture = ExtResource("6_t1bg0")
 script = ExtResource("6_hdsiy")
-card_type = "sociais"
+tipo_cartao = "sociais"
 metadata/_edit_lock_ = true
 
 [node name="CardPoliticos" type="TextureRect" parent="ControlCards/Cards"]
@@ -134,13 +131,14 @@ offset_bottom = 633.0
 mouse_filter = 0
 texture = ExtResource("7_vtrdf")
 script = ExtResource("6_hdsiy")
-card_type = "politicos"
+tipo_cartao = "politicos"
 metadata/_edit_lock_ = true
 
 [node name="Piramide" type="Control" parent="ControlCards"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="Base" type="TextureRect" parent="ControlCards/Piramide"]
 visible = false
@@ -149,6 +147,7 @@ offset_left = 413.0
 offset_top = 510.0
 offset_right = 587.0
 offset_bottom = 575.0
+mouse_filter = 2
 texture = ExtResource("8_3voma")
 
 [node name="Meio" type="TextureRect" parent="ControlCards/Piramide"]
@@ -158,6 +157,7 @@ offset_left = 408.0
 offset_top = 433.0
 offset_right = 582.0
 offset_bottom = 498.0
+mouse_filter = 2
 texture = ExtResource("9_o103n")
 
 [node name="Topo" type="TextureRect" parent="ControlCards/Piramide"]
@@ -167,6 +167,7 @@ offset_left = 435.0
 offset_top = 359.0
 offset_right = 554.0
 offset_bottom = 423.0
+mouse_filter = 2
 texture = ExtResource("10_uvmu2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]

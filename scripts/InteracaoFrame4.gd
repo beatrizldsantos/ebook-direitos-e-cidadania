@@ -68,7 +68,7 @@ func finish_interaction():
 	for line in lines:
 		line.modulate.a = 1.0
 	
-	print("Ciclo completo! Aguardando 10s...")
+	print("Ciclo completo. Aguardando 10s para apagar...")
 	await get_tree().create_timer(10.0).timeout
 	reset_interaction()
 
@@ -76,7 +76,7 @@ func reset_interaction():
 	var tween = create_tween()
 	
 	for line in lines:
-		tween.tween_property(line, "modulate:a", 0.0, 1.0) # Fade out suave das linhas
+		tween.tween_property(line, "modulate:a", 0.0, 1.0)
 	
 	await tween.finished
 	
