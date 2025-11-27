@@ -10,6 +10,6 @@ func _can_drop_data(_at_position, data):
 
 func _drop_data(_at_position, data):
 	data["no_origem"].visible = false
-	self.visible = false # Esconde a caixa de drop imediatamente
+	self.visible = false 
 	if main_controller:
 		main_controller.processar_drop_correto(tipo_esperado)

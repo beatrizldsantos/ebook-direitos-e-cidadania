@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c2cs7o58c4s4x"]
+[gd_scene load_steps=18 format=3 uid="uid://c2cs7o58c4s4x"]
 
 [ext_resource type="Script" uid="uid://cjb37vwdspaog" path="res://scripts/frame_2_cidadania.gd" id="1_khcsa"]
 [ext_resource type="Texture2D" uid="uid://dtdm48yhtebik" path="res://assets/images/Frame 2 - O que é Cidadania_.png" id="1_thbsr"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cryibh51d0ryv" path="res://assets/images/Components_Frame 2/2.2_BS_sociais.png" id="8_3voma"]
 [ext_resource type="Texture2D" uid="uid://b1siwtnyuugnw" path="res://assets/images/Components_Frame 2/2.2_BS_politicos.png" id="9_o103n"]
 [ext_resource type="Texture2D" uid="uid://db1v2sc73qq3t" path="res://assets/images/Components_Frame 2/2.2_BS_civis.png" id="10_uvmu2"]
+[ext_resource type="Texture2D" uid="uid://dtwani5ywpffs" path="res://assets/images/Components_Frame 4/Balao.png" id="17_t1bg0"]
 
 [node name="Frame2_tscn" type="Node2D"]
 script = ExtResource("1_khcsa")
@@ -140,6 +141,18 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 
+[node name="balao_piramide" type="TextureRect" parent="ControlCards/Piramide"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.7
+anchor_top = 5.55
+anchor_right = 9.585
+anchor_bottom = 12.333
+offset_right = 26.6
+offset_bottom = 22.68
+texture = ExtResource("17_t1bg0")
+
 [node name="Base" type="TextureRect" parent="ControlCards/Piramide"]
 visible = false
 layout_mode = 0
@@ -153,10 +166,10 @@ texture = ExtResource("8_3voma")
 [node name="Meio" type="TextureRect" parent="ControlCards/Piramide"]
 visible = false
 layout_mode = 0
-offset_left = 408.0
+offset_left = 416.0
 offset_top = 433.0
-offset_right = 582.0
-offset_bottom = 498.0
+offset_right = 576.0
+offset_bottom = 497.0
 mouse_filter = 2
 texture = ExtResource("9_o103n")
 
