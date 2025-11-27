@@ -1,7 +1,6 @@
 extends VideoStreamPlayer
 
 @onready var video_stream_player: VideoStreamPlayer = $"."
-@onready var panel := get_tree().get_current_scene().get_node("Control/Panel")
 
 var touch_start_pos: Vector2
 
@@ -11,35 +10,46 @@ func _ready():
 	AudioManager.audio_forced_on.connect(_on_audio_forced_on)
 	AudioManager.enabled_changed.connect(_on_audio_toggled)
 
+var last_input_time: int = 0
 
 func _input(event):
-
+	# Debug para verificar o que está chegando
+	# print("Evento: ", event) 
+	var valid_input = false
+	
+	# Verifica Toque
 	if event is InputEventScreenTouch:
-		if not panel.get_global_rect().has_point(event.position):
-			return
-
-		if event.pressed:
-			touch_start_pos = event.position
-		else:
-			_handle_tap_or_swipe(event.position)
-
+		valid_input = true
+	# Verifica Mouse
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if not panel.get_global_rect().has_point(event.position):
-			return
+		valid_input = true
+		
+	if not valid_input:
+		return
 
-		if event.pressed:
-			touch_start_pos = event.position
-		else:
-			_handle_tap_or_swipe(event.position)
+	# Verifica se o evento ocorreu dentro da área do VideoStreamPlayer
+	if not get_global_rect().has_point(event.position):
+		return
+
+	# DEBOUNCE: Evita duplo clique (Touch + Mouse emulado)
+	# Se o evento atual acontecer muito rápido após o último, ignoramos.
+	var current_time = Time.get_ticks_msec()
+	if current_time - last_input_time < 100: # 100ms de tolerância
+		return
+	
+	if event.pressed:
+		touch_start_pos = event.position
+	else:
+		last_input_time = current_time # Atualiza tempo apenas no release (ação)
+		# Pequeno delay ou verificação direta para garantir que o toque soltou
+		_handle_tap_or_swipe(event.position)
 
 
 func _handle_tap_or_swipe(end_pos: Vector2) -> void:
 	var delta = end_pos - touch_start_pos
 
 	if delta.length() < 20:
-
 		if video_stream_player.is_playing():
-
 			video_stream_player.paused = not video_stream_player.paused
 
 			if video_stream_player.paused:
@@ -53,11 +63,10 @@ func _handle_tap_or_swipe(end_pos: Vector2) -> void:
 			return
 
 		else:
-			if not AudioManager.is_enabled:
-				return
-
+			# Se não estiver tocando, força o play
 			AudioManager.stop()
 			video_stream_player.play()
+			video_stream_player.paused = false # Garante que não está pausado
 			return
 
 	elif delta.x < -50:
@@ -70,7 +79,6 @@ func _handle_tap_or_swipe(end_pos: Vector2) -> void:
 		return
 
 	elif delta.y < -50:
-
 		if not AudioManager.is_enabled:
 			return
 

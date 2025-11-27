@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c44a0li12xthv" path="res://assets/button/prox.png" id="6_wif45"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iiyad"]
-bg_color = Color(0.8475616, 0.84102774, 0.9690551, 1)
+bg_color = Color(0.847562, 0.841028, 0.969055, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -26,9 +26,9 @@ metadata/_edit_use_anchors_ = true
 [node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 25.625002
+anchor_right = 25.625
 anchor_bottom = 19.225
-offset_right = -1.0001221
+offset_right = -1.00012
 offset_bottom = -1.0
 texture = ExtResource("1_iiyad")
 
@@ -37,12 +37,12 @@ clip_children = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 2.95
-anchor_top = 6.2250004
-anchor_right = 23.175001
+anchor_top = 6.225
+anchor_right = 23.175
 anchor_bottom = 16.2
 offset_left = 10.0
-offset_top = -1.5258789e-05
-offset_right = -23.000061
+offset_top = -1.52588e-05
+offset_right = -23.0001
 offset_bottom = 8.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_iiyad")
 metadata/_edit_lock_ = true
@@ -50,13 +50,13 @@ metadata/_edit_lock_ = true
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.023000002
+anchor_left = -0.023
 anchor_right = 1.024
 anchor_bottom = 1.0
-offset_left = -0.15200233
-offset_top = -1.0299997
-offset_right = 0.37597656
-offset_bottom = 2.0350037
+offset_left = -0.152002
+offset_top = -1.03
+offset_right = 0.375977
+offset_bottom = 2.035
 stream = ExtResource("2_1udua")
 expand = true
 script = ExtResource("3_2qbju")
