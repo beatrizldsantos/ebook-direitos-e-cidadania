@@ -13,35 +13,26 @@ func _ready():
 var last_input_time: int = 0
 
 func _input(event):
-	# Debug para verificar o que está chegando
-	# print("Evento: ", event) 
 	var valid_input = false
 	
-	# Verifica Toque
 	if event is InputEventScreenTouch:
 		valid_input = true
-	# Verifica Mouse
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		valid_input = true
 		
 	if not valid_input:
 		return
-
-	# Verifica se o evento ocorreu dentro da área do VideoStreamPlayer
 	if not get_global_rect().has_point(event.position):
 		return
 
-	# DEBOUNCE: Evita duplo clique (Touch + Mouse emulado)
-	# Se o evento atual acontecer muito rápido após o último, ignoramos.
 	var current_time = Time.get_ticks_msec()
-	if current_time - last_input_time < 100: # 100ms de tolerância
+	if current_time - last_input_time < 100:
 		return
 	
 	if event.pressed:
 		touch_start_pos = event.position
 	else:
-		last_input_time = current_time # Atualiza tempo apenas no release (ação)
-		# Pequeno delay ou verificação direta para garantir que o toque soltou
+		last_input_time = current_time 
 		_handle_tap_or_swipe(event.position)
 
 
@@ -63,10 +54,9 @@ func _handle_tap_or_swipe(end_pos: Vector2) -> void:
 			return
 
 		else:
-			# Se não estiver tocando, força o play
 			AudioManager.stop()
 			video_stream_player.play()
-			video_stream_player.paused = false # Garante que não está pausado
+			video_stream_player.paused = false 
 			return
 
 	elif delta.x < -50:
