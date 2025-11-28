@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bo4r6a78x4m81"]
+[gd_scene load_steps=21 format=3 uid="uid://bo4r6a78x4m81"]
 
 [ext_resource type="Script" uid="uid://b0gsok8rgxr5j" path="res://scripts/InteracoeFrame7.gd" id="1_vdvws"]
 [ext_resource type="Texture2D" uid="uid://duqadxgtlq6ql" path="res://assets/images/Components_Frame 7/balaoRealxFormal.png" id="2_ew34d"]
@@ -9,13 +9,19 @@
 [ext_resource type="Texture2D" uid="uid://c44a0li12xthv" path="res://assets/button/prox.png" id="6_y2r1v"]
 [ext_resource type="Texture2D" uid="uid://ck36cyhxs1cn7" path="res://assets/images/Components_Frame 7/C_part_cidadania_formal.png" id="7_y2r1v"]
 [ext_resource type="Texture2D" uid="uid://b3shfjnr03ql7" path="res://assets/images/Components_Frame 7/balaoParticipSocial.png" id="8_8kdit"]
+[ext_resource type="Texture2D" uid="uid://b581ah8t8rwfs" path="res://assets/images/Components_Frame 2/Olimpiadas.png" id="8_hfr50"]
 [ext_resource type="Texture2D" uid="uid://5glxfccboam8" path="res://assets/images/Components_Frame 7/C_estadania.png" id="8_y0n1r"]
 [ext_resource type="Texture2D" uid="uid://7hcdbspg4h1u" path="res://assets/images/Components_Frame 7/C_direitos_humanos.png" id="9_ealhy"]
+[ext_resource type="Texture2D" uid="uid://5d4ucujg8shh" path="res://assets/images/Components_Frame 7/spritesheet_revising.png" id="9_ic1vq"]
 [ext_resource type="Texture2D" uid="uid://dgy5dsxuu4d8i" path="res://assets/images/Components_Frame 7/balaooquecidadania.png" id="10_ew34d"]
+[ext_resource type="Script" uid="uid://c13stbb0ndy85" path="res://scripts/sprite2dFrame2e8.gd" id="10_h1ojk"]
 [ext_resource type="Texture2D" uid="uid://btgdo1mk2g7fd" path="res://assets/images/Components_Frame 7/C_o_que_e_cidadania.png" id="11_8kdit"]
 [ext_resource type="Texture2D" uid="uid://bl2fpk5uttv8v" path="res://assets/images/Components_Frame 7/Botao_de_arrastar.png" id="11_y0n1r"]
 [ext_resource type="Texture2D" uid="uid://pmfl7a58vpyn" path="res://assets/images/Components_Frame 7/balaoEstadania.png" id="12_ytrj8"]
 [ext_resource type="Texture2D" uid="uid://drvthp208bwm3" path="res://assets/images/Components_Frame 7/balaoDireitosHumanoos.png" id="14_hfr50"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25lyf"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="Frame7_tscn" type="Node2D" node_paths=PackedStringArray("area_limite") groups=["page7"]]
 script = ExtResource("1_vdvws")
@@ -36,6 +42,46 @@ layout_mode = 0
 offset_right = 1024.0
 offset_bottom = 768.0
 texture = ExtResource("2_y0n1r")
+
+[node name="Control" type="Control" parent="ControlFundodeTela/Fundo de tela"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Balaoolimpiadas" type="TextureRect" parent="ControlFundodeTela/Fundo de tela/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.9500003
+anchor_top = 7.9750004
+anchor_right = 14.750001
+anchor_bottom = 13.1
+offset_left = -1.5258789e-05
+offset_right = -6.1035156e-05
+texture = ExtResource("8_hfr50")
+
+[node name="Sprit2dPanel" type="Panel" parent="ControlFundodeTela/Fundo de tela/Control"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 15.125001
+anchor_top = 7.9000006
+anchor_right = 23.175
+anchor_bottom = 15.35
+offset_left = 98.99994
+offset_top = 200.99997
+offset_right = 23.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_25lyf")
+
+[node name="Sprite2D" type="Sprite2D" parent="ControlFundodeTela/Fundo de tela/Control/Sprit2dPanel"]
+position = Vector2(110.50004, 104)
+scale = Vector2(0.57708335, 0.56992096)
+texture = ExtResource("9_ic1vq")
+hframes = 3
+frame = 1
+script = ExtResource("10_h1ojk")
+total_frames = 3
 
 [node name="Interacoes" type="Control" parent="."]
 layout_mode = 3
