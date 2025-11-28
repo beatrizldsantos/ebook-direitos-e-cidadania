@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgw12qicuokfi"]
+[gd_scene load_steps=8 format=3 uid="uid://dgw12qicuokfi"]
 
 [ext_resource type="Texture2D" uid="uid://dnqkl8266rihr" path="res://assets/images/Frame 8 - Contra Capa.png" id="1_smeb5"]
 [ext_resource type="Texture2D" uid="uid://cdfopk5gj6w6n" path="res://assets/button/ant_capa.png" id="4_lgo3d"]
 [ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/buttons.gd" id="5_heciq"]
+[ext_resource type="Texture2D" uid="uid://domjuorufr2s7" path="res://assets/images/Components_Frame 8/output-onlinegiftools.png" id="5_smeb5"]
 [ext_resource type="Texture2D" uid="uid://bo2i1hk1btnea" path="res://assets/button/volt_inicio.png" id="6_hpes6"]
+[ext_resource type="Script" uid="uid://c13stbb0ndy85" path="res://scripts/sprite2dFrame2e8.gd" id="6_ug46d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgo3d"]
+bg_color = Color(0.847562, 0.841028, 0.969055, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="Frame8_tscn" type="Node2D"]
 
@@ -39,6 +48,34 @@ layout_mode = 2
 icon = ExtResource("6_hpes6")
 flat = true
 script = ExtResource("5_heciq")
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprit2dPanel" type="Panel" parent="Control2"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 17.95
+anchor_top = 5.8250003
+anchor_right = 24.175001
+anchor_bottom = 12.85
+offset_top = -1.5258789e-05
+offset_right = -6.1035156e-05
+offset_bottom = -20.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lgo3d")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control2/Sprit2dPanel"]
+position = Vector2(121.99998, 125.000015)
+scale = Vector2(0.52610457, 0.55421686)
+texture = ExtResource("5_smeb5")
+hframes = 3
+frame = 2
+script = ExtResource("6_ug46d")
+total_frames = 3
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/anterior" to="VBoxContainer/HBoxContainer/anterior" method="pagAnterior"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/proximo" to="VBoxContainer/HBoxContainer/anterior" method="voltarInicio"]
