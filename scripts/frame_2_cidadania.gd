@@ -4,7 +4,7 @@ extends Node2D
 @onready var piramide_topo = $ControlCards/Piramide/Topo
 
 @onready var drop_zones = $ControlCards/DropZone
-# Caminho atualizado conforme solicitação exata
+
 @onready var balao = $ControlCards/Piramide/balao_piramide
 
 func _ready():
@@ -12,7 +12,7 @@ func _ready():
 	piramide_meio.visible = false
 	piramide_topo.visible = false
 	
-	# Garante que começa invisível, se o nó existir
+	
 	if balao:
 		balao.visible = false
 

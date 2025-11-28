@@ -1,9 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcnpcqkn04qoj"]
+[gd_scene load_steps=11 format=3 uid="uid://dcnpcqkn04qoj"]
 
 [ext_resource type="Texture2D" uid="uid://cbngxh1wpcbku" path="res://assets/images/Frame 3 - Cidadania no BR vs Estadania.png" id="1_om7ve"]
+[ext_resource type="Texture2D" uid="uid://d3sxpnbx7v7ik" path="res://assets/images/Components_Frame 3/bandeira_spritesheet.png" id="2_om7ve"]
+[ext_resource type="Script" uid="uid://csdmetx2hrro" path="res://scripts/sprite2dFrame3.gd" id="3_gbkqj"]
 [ext_resource type="Texture2D" uid="uid://cdfopk5gj6w6n" path="res://assets/button/ant_capa.png" id="4_tpm8w"]
 [ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/buttons.gd" id="5_p4wnb"]
 [ext_resource type="Texture2D" uid="uid://c44a0li12xthv" path="res://assets/button/prox.png" id="6_t3mex"]
+[ext_resource type="Texture2D" uid="uid://b0kolfuo7b3gd" path="res://assets/images/Components_Frame 3/Modelo de marshall.png" id="7_gbkqj"]
+[ext_resource type="Texture2D" uid="uid://k8ghl13bwix1" path="res://assets/images/Components_Frame 3/Estadania de Carvalho.png" id="8_yriws"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xu4kb"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbkqj"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+anti_aliasing_size = 0.01
 
 [node name="Frame3_tscn" type="Node2D"]
 
@@ -15,9 +34,78 @@ offset_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1024.0
+offset_bottom = 768.0
 texture = ExtResource("1_om7ve")
+metadata/_edit_lock_ = true
+
+[node name="FlagPanel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 14.0
+anchor_top = 6.95
+anchor_right = 22.719
+anchor_bottom = 13.9
+offset_left = -3.0
+offset_right = -19.7601
+theme_override_styles/panel = SubResource("StyleBoxFlat_xu4kb")
+
+[node name="ClippingControl" type="Control" parent="Control/FlagPanel"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -1.0
+offset_right = 16.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Control/FlagPanel/ClippingControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.044
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -28.192
+offset_top = -15.0
+offset_right = 10.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+metadata/_edit_lock_ = true
+
+[node name="SubViewport" type="SubViewport" parent="Control/FlagPanel/ClippingControl/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(374, 301)
+render_target_update_mode = 4
+
+[node name="panelr" type="Panel" parent="Control/FlagPanel/ClippingControl/SubViewportContainer/SubViewport"]
+clip_children = 2
+anchors_preset = -1
+anchor_left = 0.035
+anchor_top = 0.053
+anchor_right = 0.976
+anchor_bottom = 0.97
+offset_left = -0.0900002
+offset_top = 0.046999
+offset_right = -0.0240173
+offset_bottom = 0.0299988
+theme_override_styles/panel = SubResource("StyleBoxFlat_gbkqj")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/FlagPanel/ClippingControl/SubViewportContainer/SubViewport/panelr"]
+position = Vector2(196.704, 151)
+scale = Vector2(1.82862, 1.97024)
+texture = ExtResource("2_om7ve")
+hframes = 10
+script = ExtResource("3_gbkqj")
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 328.0
@@ -39,6 +127,17 @@ layout_mode = 2
 icon = ExtResource("6_t3mex")
 flat = true
 script = ExtResource("5_p4wnb")
+
+[node name="ModeloDeMarshall" type="Sprite2D" parent="."]
+position = Vector2(368, 416)
+scale = Vector2(0.90625, 0.943878)
+texture = ExtResource("7_gbkqj")
+metadata/_edit_lock_ = true
+
+[node name="EstadaniaDeCarvalho" type="Sprite2D" parent="."]
+position = Vector2(728, 378)
+scale = Vector2(0.924275, 0.94201)
+texture = ExtResource("8_yriws")
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/anterior" to="VBoxContainer/HBoxContainer/anterior" method="pagAnterior"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/proximo" to="VBoxContainer/HBoxContainer/proximo" method="proxPag"]

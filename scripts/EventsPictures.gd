@@ -19,7 +19,6 @@ var current_angle: float = 0.0
 var smoothing_speed: float = 5.0
 
 func _physics_process(delta: float) -> void:
-	# Tenta usar a gravidade (mais estável), fallback para acelerômetro
 	var sensor_vector = Input.get_gravity()
 	if sensor_vector == Vector3.ZERO:
 		sensor_vector = Input.get_accelerometer()
@@ -27,11 +26,8 @@ func _physics_process(delta: float) -> void:
 	if sensor_vector == Vector3.ZERO:
 		return
 
-	# Calcula o ângulo de inclinação (Roll)
-	# No Android: Inclinar para Esquerda gera X negativo -> Ângulo Positivo
 	var target_angle = rad_to_deg(atan2(sensor_vector.x, sensor_vector.y)) * -1.0
 	
-	# Suaviza o valor do ângulo para evitar tremedeira nas imagens
 	current_angle = lerp(current_angle, target_angle, smoothing_speed * delta)
 
 	var novo_indice := _indice_por_angulo(current_angle)
@@ -42,7 +38,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _indice_por_angulo(angulo: float) -> int:
-	# Intervalos ajustados para maior conforto (máximo ~60 graus)
+	
 	if angulo < 10.0:
 		return 0
 	elif angulo < 25.0:

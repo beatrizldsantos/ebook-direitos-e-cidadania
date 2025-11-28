@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3sxpnbx7v7ik"
-path="res://.godot/imported/bandeira_spritesheet.png-5bf21e3e3234b8f7a2a577edd0da645c.ctex"
+uid="uid://b0kolfuo7b3gd"
+path="res://.godot/imported/Modelo de marshall.png-ee55c3e80eb94d668f72e58534d761ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Components_Frame 3/bandeira_spritesheet.png"
-dest_files=["res://.godot/imported/bandeira_spritesheet.png-5bf21e3e3234b8f7a2a577edd0da645c.ctex"]
+source_file="res://assets/images/Components_Frame 3/Modelo de marshall.png"
+dest_files=["res://.godot/imported/Modelo de marshall.png-ee55c3e80eb94d668f72e58534d761ed.ctex"]
 
 [params]
 

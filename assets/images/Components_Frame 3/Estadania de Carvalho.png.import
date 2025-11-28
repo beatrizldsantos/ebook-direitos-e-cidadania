@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3sxpnbx7v7ik"
-path="res://.godot/imported/bandeira_spritesheet.png-5bf21e3e3234b8f7a2a577edd0da645c.ctex"
+uid="uid://k8ghl13bwix1"
+path="res://.godot/imported/Estadania de Carvalho.png-2ba1be8c00f37495656503be330fe3ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Components_Frame 3/bandeira_spritesheet.png"
-dest_files=["res://.godot/imported/bandeira_spritesheet.png-5bf21e3e3234b8f7a2a577edd0da645c.ctex"]
+source_file="res://assets/images/Components_Frame 3/Estadania de Carvalho.png"
+dest_files=["res://.godot/imported/Estadania de Carvalho.png-2ba1be8c00f37495656503be330fe3ba.ctex"]
 
 [params]
 

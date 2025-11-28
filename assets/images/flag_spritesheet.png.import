@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3sxpnbx7v7ik"
-path="res://.godot/imported/bandeira_spritesheet.png-5bf21e3e3234b8f7a2a577edd0da645c.ctex"
+uid="uid://qrt8ukwq7r52"
+path="res://.godot/imported/flag_spritesheet.png-0437d852a23886961d3ee4c10152bcbb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Components_Frame 3/bandeira_spritesheet.png"
-dest_files=["res://.godot/imported/bandeira_spritesheet.png-5bf21e3e3234b8f7a2a577edd0da645c.ctex"]
+source_file="res://assets/images/flag_spritesheet.png"
+dest_files=["res://.godot/imported/flag_spritesheet.png-0437d852a23886961d3ee4c10152bcbb.ctex"]
 
 [params]
 
