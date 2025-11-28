@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c2cs7o58c4s4x"]
+[gd_scene load_steps=22 format=3 uid="uid://c2cs7o58c4s4x"]
 
 [ext_resource type="Script" uid="uid://cjb37vwdspaog" path="res://scripts/frame_2_cidadania.gd" id="1_khcsa"]
 [ext_resource type="Texture2D" uid="uid://dtdm48yhtebik" path="res://assets/images/Frame 2 - O que é Cidadania_.png" id="1_thbsr"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://db1v2sc73qq3t" path="res://assets/images/Components_Frame 2/2.2_BS_civis.png" id="10_uvmu2"]
 [ext_resource type="Texture2D" uid="uid://dtwani5ywpffs" path="res://assets/images/Components_Frame 4/Balao.png" id="17_t1bg0"]
 [ext_resource type="Texture2D" uid="uid://cgg20eapiun68" path="res://assets/images/Components_Frame 2/spritesheet_8_frames_fixed.png" id="18_3voma"]
+[ext_resource type="Texture2D" uid="uid://b581ah8t8rwfs" path="res://assets/images/Components_Frame 2/Olimpiadas.png" id="18_o103n"]
 [ext_resource type="Script" uid="uid://c13stbb0ndy85" path="res://scripts/sprite2dFrame2e8.gd" id="19_o103n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvmu2"]
@@ -219,6 +220,18 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Balaoolimpiadas" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.9500003
+anchor_top = 7.9750004
+anchor_right = 14.750001
+anchor_bottom = 13.1
+offset_left = -1.5258789e-05
+offset_right = -6.1035156e-05
+texture = ExtResource("18_o103n")
+
 [node name="Sprit2dPanel" type="Panel" parent="Control"]
 clip_children = 2
 layout_mode = 1
@@ -237,7 +250,7 @@ position = Vector2(150.99997, 149)
 scale = Vector2(1.3999996, 1.3636363)
 texture = ExtResource("18_3voma")
 hframes = 8
-frame = 6
+frame = 7
 script = ExtResource("19_o103n")
 total_frames = 8
 metadata/_edit_lock_ = true

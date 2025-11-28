@@ -7,6 +7,10 @@ extends Node2D
 
 @onready var balao = $ControlCards/Piramide/balao_piramide
 
+
+@onready var sprit2d_panel = $Control/Sprit2dPanel
+@onready var balao_olimpiadas = $Control/Balaoolimpiadas
+
 func _ready():
 	piramide_base.visible = false
 	piramide_meio.visible = false
@@ -22,6 +26,21 @@ func _ready():
 		$ControlCards/Cards.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	if has_node("ControlCards/DropZone"):
 		$ControlCards/DropZone.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		
+	if sprit2d_panel:
+		sprit2d_panel.gui_input.connect(_on_sprit2d_panel_gui_input)
+
+func _on_sprit2d_panel_gui_input(event):
+	if event is InputEventScreenTouch and event.pressed:
+		_show_balao_olimpiadas()
+	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		_show_balao_olimpiadas()
+
+func _show_balao_olimpiadas():
+	if balao_olimpiadas:
+		balao_olimpiadas.visible = true
+		get_tree().create_timer(10.0).timeout.connect(func(): if balao_olimpiadas: balao_olimpiadas.visible = false)
+
 
 func processar_drop_correto(tipo_cartao: String):
 	match tipo_cartao:
