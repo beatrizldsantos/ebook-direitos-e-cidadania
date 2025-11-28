@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 SoundHud="*res://scenes/SoundHUD.tscn"
 AudioManager="*res://scripts/AudioManager.gd"
-Main="*res://scripts/Main.gd"
+Main="*res://scripts/main.gd"
 
 [display]
 
@@ -28,6 +28,12 @@ window/size/viewport_height=768
 window/size/resizable=false
 window/size/borderless=true
 window/stretch/mode="canvas_items"
+
+[input_devices]
+
+sensors/enable_accelerometer=true
+sensors/enable_gravity=true
+pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
