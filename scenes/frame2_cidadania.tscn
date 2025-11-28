@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c2cs7o58c4s4x"]
+[gd_scene load_steps=21 format=3 uid="uid://c2cs7o58c4s4x"]
 
 [ext_resource type="Script" uid="uid://cjb37vwdspaog" path="res://scripts/frame_2_cidadania.gd" id="1_khcsa"]
 [ext_resource type="Texture2D" uid="uid://dtdm48yhtebik" path="res://assets/images/Frame 2 - O que é Cidadania_.png" id="1_thbsr"]
@@ -17,6 +17,15 @@
 [ext_resource type="Texture2D" uid="uid://b1siwtnyuugnw" path="res://assets/images/Components_Frame 2/2.2_BS_politicos.png" id="9_o103n"]
 [ext_resource type="Texture2D" uid="uid://db1v2sc73qq3t" path="res://assets/images/Components_Frame 2/2.2_BS_civis.png" id="10_uvmu2"]
 [ext_resource type="Texture2D" uid="uid://dtwani5ywpffs" path="res://assets/images/Components_Frame 4/Balao.png" id="17_t1bg0"]
+[ext_resource type="Texture2D" uid="uid://cgg20eapiun68" path="res://assets/images/Components_Frame 2/spritesheet_8_frames_fixed.png" id="18_3voma"]
+[ext_resource type="Script" uid="uid://c13stbb0ndy85" path="res://scripts/sprite2dFrame2.gd" id="19_o103n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvmu2"]
+bg_color = Color(0.847562, 0.841028, 0.969055, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="Frame2_tscn" type="Node2D"]
 script = ExtResource("1_khcsa")
@@ -203,6 +212,34 @@ layout_mode = 2
 icon = ExtResource("5_e3bs6")
 flat = true
 script = ExtResource("5_agfjj")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprit2dPanel" type="Panel" parent="Control"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 15.125001
+anchor_top = 7.9000006
+anchor_right = 23.175
+anchor_bottom = 15.35
+offset_left = -6.1035156e-05
+offset_top = -3.0517578e-05
+offset_right = -23.000122
+theme_override_styles/panel = SubResource("StyleBoxFlat_uvmu2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Sprit2dPanel"]
+position = Vector2(150.99997, 149)
+scale = Vector2(1.3999996, 1.3636363)
+texture = ExtResource("18_3voma")
+hframes = 8
+frame = 2
+script = ExtResource("19_o103n")
+total_frames = 8
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/anterior" to="VBoxContainer/HBoxContainer/anterior" method="pagAnterior"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/proximo" to="VBoxContainer/HBoxContainer/proximo" method="proxPag"]
