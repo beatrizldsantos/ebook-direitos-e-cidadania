@@ -8,6 +8,7 @@ var paginas = [
 	"res://scenes/frame5_cidFormal.tscn",
 	"res://scenes/frame6_participSocial.tscn",
 	"res://scenes/frame7_futuro.tscn",
+	"res://scenes/frame9_Cidademrede.tscn",
 	"res://scenes/frame8_contracapa.tscn"
 ]
 

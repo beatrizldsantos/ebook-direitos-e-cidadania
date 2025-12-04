@@ -16,14 +16,14 @@ grow_vertical = 2
 
 [node name="SoundToggleButton" type="TextureButton" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.85400003
+anchor_left = 0.854
 anchor_top = 0.033
-anchor_right = 0.95300007
-anchor_bottom = 0.17600001
-offset_left = 0.5039673
-offset_top = -0.34399986
-offset_right = 0.12792969
-offset_bottom = 0.8319855
+anchor_right = 0.953
+anchor_bottom = 0.176
+offset_left = 0.503967
+offset_top = -0.344
+offset_right = 0.12793
+offset_bottom = 0.831985
 texture_normal = ExtResource("2_gp271")
 texture_pressed = ExtResource("3_6u2ri")
 script = ExtResource("1_kl441")
