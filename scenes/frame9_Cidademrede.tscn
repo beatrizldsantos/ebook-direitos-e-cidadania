@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkdoxtqfspscv"]
+[gd_scene load_steps=13 format=3 uid="uid://bkdoxtqfspscv"]
 
 [ext_resource type="Texture2D" uid="uid://bsilr66657vfm" path="res://assets/images/Frame 9 - Cidadania em rede.png" id="1_g0j5e"]
 [ext_resource type="Texture2D" uid="uid://cdfopk5gj6w6n" path="res://assets/button/ant_capa.png" id="2_ant"]
 [ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/buttons.gd" id="3_btn"]
 [ext_resource type="Texture2D" uid="uid://c44a0li12xthv" path="res://assets/button/prox.png" id="4_prox"]
+[ext_resource type="Texture2D" uid="uid://c1b2ch7mdkwqh" path="res://assets/images/Component_Frame 9/combateafakenews.png" id="5_4j672"]
+[ext_resource type="Texture2D" uid="uid://vlqggr5sgwrw" path="res://assets/images/Component_Frame 9/informacao confiavel.png" id="6_i2etm"]
+[ext_resource type="Texture2D" uid="uid://h8gepvdqaact" path="res://assets/images/Component_Frame 9/liberdadee.png" id="7_s4uyx"]
+[ext_resource type="Texture2D" uid="uid://c04thv8pfj5k2" path="res://assets/images/Component_Frame 9/exposicaodedados.png" id="8_7tfu6"]
+[ext_resource type="Texture2D" uid="uid://dscuqp5xaxl1i" path="res://assets/images/Component_Frame 9/combatebalao.png" id="9_oecf6"]
+[ext_resource type="Texture2D" uid="uid://b4u6yvtj4j83i" path="res://assets/images/Component_Frame 9/Liberdade de expressão.png" id="10_y8t8g"]
+[ext_resource type="Texture2D" uid="uid://1kwobh5eco0k" path="res://assets/images/Component_Frame 9/informacao.png" id="11_jxgg5"]
+[ext_resource type="Texture2D" uid="uid://bdlkyqs3qpjuj" path="res://assets/images/Component_Frame 9/Exposição de dados.png" id="12_2v13o"]
 
 [node name="Frame9Cidademrede" type="Node2D"]
 
@@ -32,6 +40,128 @@ layout_mode = 2
 icon = ExtResource("4_prox")
 flat = true
 script = ExtResource("3_btn")
+
+[node name="Interacoes" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.058000002
+anchor_top = 0.044000003
+anchor_right = 0.058000002
+anchor_bottom = 0.044000003
+
+[node name="Card" type="Control" parent="Interacoes"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="combateAsFake" type="TextureRect" parent="Interacoes/Card"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 494.0
+offset_top = 281.0
+offset_right = 646.0
+offset_bottom = 321.0
+grow_vertical = 2
+texture = ExtResource("5_4j672")
+
+[node name="informacaoconfiavel" type="TextureRect" parent="Interacoes/Card"]
+layout_mode = 0
+offset_left = 494.0
+offset_top = 504.0
+offset_right = 646.0
+offset_bottom = 584.0
+texture = ExtResource("6_i2etm")
+
+[node name="liberdadedeexpressao" type="TextureRect" parent="Interacoes/Card"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 20.0
+anchor_top = 7.0000005
+anchor_right = 23.800001
+anchor_bottom = 9.025001
+offset_left = -2.0
+offset_top = 0.9999695
+offset_right = -6.1035156e-05
+offset_bottom = -3.0517578e-05
+texture = ExtResource("7_s4uyx")
+
+[node name="exposicaodedados" type="TextureRect" parent="Interacoes/Card"]
+layout_mode = 0
+offset_left = 798.0
+offset_top = 504.0
+offset_right = 950.0
+offset_bottom = 584.0
+texture = ExtResource("8_7tfu6")
+
+[node name="Balao" type="Control" parent="Interacoes"]
+anchors_preset = 0
+offset_left = 72.0
+offset_top = 172.0
+offset_right = 997.0
+offset_bottom = 594.0
+metadata/_edit_lock_ = true
+
+[node name="balao_fakenews" type="TextureRect" parent="Interacoes/Balao"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.18
+anchor_right = 0.39800003
+anchor_bottom = 0.46400002
+offset_top = -16.039993
+offset_right = 23.849976
+offset_bottom = 24.191986
+texture = ExtResource("9_oecf6")
+
+[node name="balao_liberdadedeexpressao" type="TextureRect" parent="Interacoes/Balao"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.32900003
+anchor_top = -0.23700002
+anchor_right = 0.76100004
+anchor_bottom = 0.521
+offset_left = 7.674988
+offset_top = 0.014007568
+offset_right = 0.07495117
+offset_bottom = -7.862015
+texture = ExtResource("10_y8t8g")
+
+[node name="balao_informacaoconfiavel" type="TextureRect" parent="Interacoes/Balao"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.294
+anchor_right = 0.42800003
+anchor_bottom = 1.033
+offset_left = 8.0
+offset_top = -0.06800079
+offset_right = 4.0999756
+offset_bottom = 0.07400513
+texture = ExtResource("11_jxgg5")
+
+[node name="balao_exposicao de dados" type="TextureRect" parent="Interacoes/Balao"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.337
+anchor_top = 0.33200002
+anchor_right = 0.75200003
+anchor_bottom = 1.0710001
+offset_left = 0.2749939
+offset_top = -0.104003906
+offset_right = 8.399963
+offset_bottom = 0.037963867
+texture = ExtResource("12_2v13o")
+
+[node name="AreaLimite" type="ReferenceRect" parent="."]
+anchors_preset = -1
+offset_left = 468.0
+offset_top = 264.0
+offset_right = 970.0
+offset_bottom = 631.0
+border_color = Color(1, 1, 1, 1)
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/anterior" to="VBoxContainer/HBoxContainer/anterior" method="pagAnterior"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/proximo" to="VBoxContainer/HBoxContainer/proximo" method="proxPag"]
