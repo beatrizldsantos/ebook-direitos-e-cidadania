@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vlqggr5sgwrw"
-path="res://.godot/imported/informacao confiavel.png-04e0bd9c4ead0f36c28ef99287f7b7f8.ctex"
+uid="uid://02cylvy2r1jg"
+path="res://.godot/imported/spritesheet_liberdade_9_frames_godot.png-5b59254cad21b9f0a33b7e23ed20a28f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Component_Frame 9/informacao confiavel.png"
-dest_files=["res://.godot/imported/informacao confiavel.png-04e0bd9c4ead0f36c28ef99287f7b7f8.ctex"]
+source_file="res://assets/images/Components_Frame 9/spritesheet_liberdade_9_frames_godot.png"
+dest_files=["res://.godot/imported/spritesheet_liberdade_9_frames_godot.png-5b59254cad21b9f0a33b7e23ed20a28f.ctex"]
 
 [params]
 

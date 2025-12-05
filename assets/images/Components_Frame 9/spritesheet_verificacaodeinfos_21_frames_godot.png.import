@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdlkyqs3qpjuj"
-path="res://.godot/imported/Exposição de dados.png-df7c1d9de350538b8a08a79b3529da41.ctex"
+uid="uid://c81au044s1jnq"
+path="res://.godot/imported/spritesheet_verificacaodeinfos_21_frames_godot.png-ac8cdf9aed9cd55cee7b71dd99aa9bbf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Component_Frame 9/Exposição de dados.png"
-dest_files=["res://.godot/imported/Exposição de dados.png-df7c1d9de350538b8a08a79b3529da41.ctex"]
+source_file="res://assets/images/Components_Frame 9/spritesheet_verificacaodeinfos_21_frames_godot.png"
+dest_files=["res://.godot/imported/spritesheet_verificacaodeinfos_21_frames_godot.png-ac8cdf9aed9cd55cee7b71dd99aa9bbf.ctex"]
 
 [params]
 

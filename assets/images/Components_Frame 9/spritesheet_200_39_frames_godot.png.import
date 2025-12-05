@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4u6yvtj4j83i"
-path="res://.godot/imported/Liberdade de expressão.png-629662b80cf0d25baa8a9e5685c967ae.ctex"
+uid="uid://iymifltk7vci"
+path="res://.godot/imported/spritesheet_200_39_frames_godot.png-ec6cae364337bf68e922755a7a7e45c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Component_Frame 9/Liberdade de expressão.png"
-dest_files=["res://.godot/imported/Liberdade de expressão.png-629662b80cf0d25baa8a9e5685c967ae.ctex"]
+source_file="res://assets/images/Components_Frame 9/spritesheet_200_39_frames_godot.png"
+dest_files=["res://.godot/imported/spritesheet_200_39_frames_godot.png-ec6cae364337bf68e922755a7a7e45c1.ctex"]
 
 [params]
 

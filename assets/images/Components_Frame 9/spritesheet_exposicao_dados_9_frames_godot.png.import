@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dscuqp5xaxl1i"
-path="res://.godot/imported/combatebalao.png-f97e3314db51f006cdee40fa6163947b.ctex"
+uid="uid://bg1hn73t8qax0"
+path="res://.godot/imported/spritesheet_exposicao_dados_9_frames_godot.png-ab46b5485b8a85fe3fd10c63f4aa1740.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Component_Frame 9/combatebalao.png"
-dest_files=["res://.godot/imported/combatebalao.png-f97e3314db51f006cdee40fa6163947b.ctex"]
+source_file="res://assets/images/Components_Frame 9/spritesheet_exposicao_dados_9_frames_godot.png"
+dest_files=["res://.godot/imported/spritesheet_exposicao_dados_9_frames_godot.png-ab46b5485b8a85fe3fd10c63f4aa1740.ctex"]
 
 [params]
 
