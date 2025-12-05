@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bkdoxtqfspscv"]
+[gd_scene load_steps=14 format=3 uid="uid://bkdoxtqfspscv"]
 
 [ext_resource type="Texture2D" uid="uid://bsilr66657vfm" path="res://assets/images/Frame 9 - Cidadania em rede.png" id="1_g0j5e"]
 [ext_resource type="Texture2D" uid="uid://cdfopk5gj6w6n" path="res://assets/button/ant_capa.png" id="2_ant"]
@@ -12,8 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://b4u6yvtj4j83i" path="res://assets/images/Component_Frame 9/Liberdade de expressão.png" id="10_y8t8g"]
 [ext_resource type="Texture2D" uid="uid://1kwobh5eco0k" path="res://assets/images/Component_Frame 9/informacao.png" id="11_jxgg5"]
 [ext_resource type="Texture2D" uid="uid://bdlkyqs3qpjuj" path="res://assets/images/Component_Frame 9/Exposição de dados.png" id="12_2v13o"]
+[ext_resource type="Script" uid="uid://cb0bbxn3l752c" path="res://scripts/frame9_interacoes.gd" id="13_custom"]
 
 [node name="Frame9Cidademrede" type="Node2D"]
+script = ExtResource("13_custom")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1024.0
@@ -155,13 +157,11 @@ offset_bottom = 0.037963867
 texture = ExtResource("12_2v13o")
 
 [node name="AreaLimite" type="ReferenceRect" parent="."]
-anchors_preset = -1
-offset_left = 468.0
-offset_top = 264.0
-offset_right = 970.0
-offset_bottom = 631.0
-border_color = Color(1, 1, 1, 1)
-metadata/_edit_lock_ = true
+offset_left = 496.0
+offset_top = 281.0
+offset_right = 952.0
+offset_bottom = 584.0
+border_color = Color(1, 1, 1, 0)
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/anterior" to="VBoxContainer/HBoxContainer/anterior" method="pagAnterior"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/proximo" to="VBoxContainer/HBoxContainer/proximo" method="proxPag"]
