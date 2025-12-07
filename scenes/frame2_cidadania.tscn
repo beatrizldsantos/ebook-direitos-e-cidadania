@@ -52,47 +52,46 @@ offset_bottom = 40.0
 [node name="DropCivis" type="TextureRect" parent="ControlCards/DropZone"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 10.525
-anchor_top = 7.8
-anchor_right = 14.325
-anchor_bottom = 9.975
-offset_left = -3.05176e-05
-offset_top = 15.0
-offset_bottom = 15.0
+anchor_left = 11.025001
+anchor_top = 12.650001
+anchor_right = 14.825001
+anchor_bottom = 14.225
+offset_left = -3.0517578e-05
+offset_top = -3.0517578e-05
 mouse_filter = 0
 texture = ExtResource("2_srkrl")
 script = ExtResource("4_hdsiy")
 tipo_esperado = "civis"
-metadata/_edit_lock_ = true
 
 [node name="DropPoliticos" type="TextureRect" parent="ControlCards/DropZone"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 10.6
-anchor_top = 10.225
-anchor_right = 14.4
-anchor_bottom = 12.2
-offset_left = -8.0
-offset_top = 15.0
-offset_right = 1.0
-offset_bottom = 16.0
+anchor_left = 10.900001
+anchor_top = 10.950001
+anchor_right = 14.925001
+anchor_bottom = 12.525001
+offset_left = -3.0517578e-05
+offset_top = -3.0517578e-05
+offset_right = -6.1035156e-05
+offset_bottom = -3.0517578e-05
 mouse_filter = 0
 texture = ExtResource("3_8bacb")
 script = ExtResource("4_hdsiy")
 tipo_esperado = "politicos"
-metadata/_edit_lock_ = true
 
 [node name="DropSociais" type="TextureRect" parent="ControlCards/DropZone"]
-layout_mode = 0
-offset_left = 417.0
-offset_top = 514.0
-offset_right = 578.0
-offset_bottom = 594.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 10.950001
+anchor_top = 9.25
+anchor_right = 14.950001
+anchor_bottom = 10.825001
+offset_left = -3.0517578e-05
+offset_bottom = -3.0517578e-05
 mouse_filter = 0
 texture = ExtResource("4_khcsa")
 script = ExtResource("4_hdsiy")
 tipo_esperado = "sociais"
-metadata/_edit_lock_ = true
 
 [node name="Cards" type="Control" parent="ControlCards"]
 clip_contents = true
@@ -166,32 +165,35 @@ texture = ExtResource("17_t1bg0")
 [node name="Base" type="TextureRect" parent="ControlCards/Piramide"]
 visible = false
 layout_mode = 0
-offset_left = 413.0
-offset_top = 510.0
-offset_right = 587.0
-offset_bottom = 575.0
+offset_left = 460.0
+offset_top = 316.0
+offset_right = 574.0
+offset_bottom = 432.0
 mouse_filter = 2
 texture = ExtResource("8_3voma")
+metadata/_edit_lock_ = true
 
 [node name="Meio" type="TextureRect" parent="ControlCards/Piramide"]
 visible = false
 layout_mode = 0
-offset_left = 416.0
-offset_top = 433.0
-offset_right = 576.0
-offset_bottom = 497.0
+offset_left = 436.0
+offset_top = 434.0
+offset_right = 599.0
+offset_bottom = 502.0
 mouse_filter = 2
 texture = ExtResource("9_o103n")
+metadata/_edit_lock_ = true
 
 [node name="Topo" type="TextureRect" parent="ControlCards/Piramide"]
 visible = false
 layout_mode = 0
-offset_left = 435.0
-offset_top = 359.0
-offset_right = 554.0
-offset_bottom = 423.0
+offset_left = 410.0
+offset_top = 504.0
+offset_right = 626.0
+offset_bottom = 574.0
 mouse_filter = 2
 texture = ExtResource("10_uvmu2")
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 328.0
@@ -236,13 +238,13 @@ texture = ExtResource("18_o103n")
 clip_children = 2
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 15.125001
+anchor_left = 15.700001
 anchor_top = 7.9000006
-anchor_right = 23.175
+anchor_right = 23.400002
 anchor_bottom = 15.35
-offset_left = -6.1035156e-05
+offset_left = 3.0
 offset_top = -3.0517578e-05
-offset_right = -23.000122
+offset_right = -6.000183
 theme_override_styles/panel = SubResource("StyleBoxFlat_uvmu2")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/Sprit2dPanel"]
@@ -250,7 +252,7 @@ position = Vector2(150.99997, 149)
 scale = Vector2(1.3999996, 1.3636363)
 texture = ExtResource("18_3voma")
 hframes = 8
-frame = 7
+frame = 4
 script = ExtResource("19_o103n")
 total_frames = 8
 metadata/_edit_lock_ = true
