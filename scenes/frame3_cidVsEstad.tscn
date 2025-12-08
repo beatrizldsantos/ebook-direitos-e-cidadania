@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://clrhiq057j4al" path="res://assets/images/Components_Frame 3/spritesheet_horizontal_9_frames.png" id="11_6xtmw"]
 [ext_resource type="Texture2D" uid="uid://brxkya22ifxwb" path="res://assets/images/Components_Frame 3/Estadania.png" id="11_estadania"]
 [ext_resource type="Script" uid="uid://c13stbb0ndy85" path="res://scripts/sprite2dFrame2e8.gd" id="12_bwj7g"]
-[ext_resource type="Texture2D" uid="uid://1k7uleth7amq" path="res://assets/images/Components_Frame 3/spritesheet_horizontal_8_frames.png" id="14_bwj7g"]
+[ext_resource type="Texture2D" uid="uid://167n1wypkvj" path="res://assets/images/Components_Frame 3/spritesheet_6_frames.png" id="14_bwj7g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xu4kb"]
 bg_color = Color(1, 1, 1, 1)
@@ -192,7 +192,6 @@ position = Vector2(108, 103.246994)
 scale = Vector2(0.633431, 0.55863345)
 texture = ExtResource("11_6xtmw")
 hframes = 9
-frame = 1
 script = ExtResource("12_bwj7g")
 animation_speed = 2.0
 total_frames = 9
@@ -220,14 +219,14 @@ offset_bottom = -1895.9702
 theme_override_styles/panel = SubResource("StyleBoxFlat_syauk")
 
 [node name="Sprite2D" type="Sprite2D" parent="Interacao/Card_estadania/Sprit2dPanel"]
-position = Vector2(107, 92.499985)
-scale = Vector2(0.5833333, 0.41992185)
+position = Vector2(109.00003, 96.99999)
+scale = Vector2(0.5336537, 0.38976377)
 texture = ExtResource("14_bwj7g")
-hframes = 8
-frame = 6
+hframes = 6
+frame = 1
 script = ExtResource("12_bwj7g")
 animation_speed = 3.0
-total_frames = 8
+total_frames = 6
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/anterior" to="VBoxContainer/HBoxContainer/anterior" method="pagAnterior"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/proximo" to="VBoxContainer/HBoxContainer/proximo" method="proxPag"]
