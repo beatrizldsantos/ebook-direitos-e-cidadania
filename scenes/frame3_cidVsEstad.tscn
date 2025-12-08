@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dcnpcqkn04qoj"]
+[gd_scene load_steps=18 format=3 uid="uid://dcnpcqkn04qoj"]
 
 [ext_resource type="Texture2D" uid="uid://cbngxh1wpcbku" path="res://assets/images/Frame 3 - Cidadania no BR vs Estadania.png" id="1_om7ve"]
 [ext_resource type="Texture2D" uid="uid://d3sxpnbx7v7ik" path="res://assets/images/Components_Frame 3/bandeira_spritesheet.png" id="2_om7ve"]
@@ -10,7 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://k8ghl13bwix1" path="res://assets/images/Components_Frame 3/Estadania de Carvalho.png" id="8_yriws"]
 [ext_resource type="Script" uid="uid://ds2uyr445dshg" path="res://scripts/Frame3_Interacao.gd" id="9_interacao"]
 [ext_resource type="Texture2D" uid="uid://dmrqhgr6gp2af" path="res://assets/images/Components_Frame 3/marshall.png" id="10_marshall"]
+[ext_resource type="Texture2D" uid="uid://clrhiq057j4al" path="res://assets/images/Components_Frame 3/spritesheet_horizontal_9_frames.png" id="11_6xtmw"]
 [ext_resource type="Texture2D" uid="uid://brxkya22ifxwb" path="res://assets/images/Components_Frame 3/Estadania.png" id="11_estadania"]
+[ext_resource type="Script" uid="uid://c13stbb0ndy85" path="res://scripts/sprite2dFrame2e8.gd" id="12_bwj7g"]
+[ext_resource type="Texture2D" uid="uid://1k7uleth7amq" path="res://assets/images/Components_Frame 3/spritesheet_horizontal_8_frames.png" id="14_bwj7g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xu4kb"]
 bg_color = Color(1, 1, 1, 1)
@@ -26,6 +29,13 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_syauk"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="Frame3_tscn" type="Node2D"]
 
@@ -157,19 +167,67 @@ texture = ExtResource("8_yriws")
 
 [node name="Card_marshall" type="TextureRect" parent="Interacao"]
 layout_mode = 0
-offset_left = 135.0
-offset_top = 344.0
-offset_right = 495.0
-offset_bottom = 544.0
+offset_left = 118.0
+offset_top = 263.0
+offset_right = 502.0
+offset_bottom = 568.0
 texture = ExtResource("10_marshall")
+
+[node name="Sprit2dPanel" type="Panel" parent="Interacao/Card_marshall"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 17.95
+anchor_top = 5.8250003
+anchor_right = 18.526001
+anchor_bottom = 6.9540005
+offset_left = -6802.8003
+offset_top = -1743.6251
+offset_right = -6807.9844
+offset_bottom = -1895.9702
+theme_override_styles/panel = SubResource("StyleBoxFlat_syauk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interacao/Card_marshall/Sprit2dPanel"]
+position = Vector2(108, 103.246994)
+scale = Vector2(0.633431, 0.55863345)
+texture = ExtResource("11_6xtmw")
+hframes = 9
+frame = 1
+script = ExtResource("12_bwj7g")
+animation_speed = 2.0
+total_frames = 9
 
 [node name="Card_estadania" type="TextureRect" parent="Interacao"]
 layout_mode = 0
-offset_left = 546.0
-offset_top = 336.0
-offset_right = 906.0
-offset_bottom = 544.0
+offset_left = 534.0
+offset_top = 264.0
+offset_right = 918.0
+offset_bottom = 569.0
 texture = ExtResource("11_estadania")
+
+[node name="Sprit2dPanel" type="Panel" parent="Interacao/Card_estadania"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 17.95
+anchor_top = 5.8250003
+anchor_right = 18.526001
+anchor_bottom = 6.9540005
+offset_left = -6802.8003
+offset_top = -1743.6251
+offset_right = -6807.9844
+offset_bottom = -1895.9702
+theme_override_styles/panel = SubResource("StyleBoxFlat_syauk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interacao/Card_estadania/Sprit2dPanel"]
+position = Vector2(107, 92.499985)
+scale = Vector2(0.5833333, 0.41992185)
+texture = ExtResource("14_bwj7g")
+hframes = 8
+frame = 6
+script = ExtResource("12_bwj7g")
+animation_speed = 3.0
+total_frames = 8
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/anterior" to="VBoxContainer/HBoxContainer/anterior" method="pagAnterior"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/proximo" to="VBoxContainer/HBoxContainer/proximo" method="proxPag"]
