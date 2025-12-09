@@ -43,6 +43,9 @@ var is_locked: bool = false
 
 func _input(event):
 	if event is InputEventScreenTouch or event is InputEventMouseButton or event is InputEventScreenDrag or (event is InputEventMouseMotion and event.button_mask > 0):
+		if not AudioManager.is_enabled:
+			return
+			
 		if not is_locked:
 			var touched_name = get_touched_icon_name(event.position)
 			if touched_name and touched_name != current_active_icon:
@@ -59,6 +62,8 @@ var current_active_icon = ""
 
 func start_interaction(touched_name: String):
 	if is_locked: return
+	
+	AudioManager.stop()
 	
 	is_locked = true
 	active = true
