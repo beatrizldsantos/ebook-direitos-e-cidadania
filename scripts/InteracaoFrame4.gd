@@ -1,85 +1,173 @@
 extends Node2D
 
-@onready var pentagono = $InteractiveArea/PentagonContainer
-@onready var connections = $InteractiveArea/Connections
+@onready var container = $InteractiveArea/PentagonContainer
+var lines_container: Node2D
 
-var is_dragging: bool = false
-var completed: bool = false
-var center_pos: Vector2
-var current_angle: float = 0.0
-var total_rotation: float = 0.0 
+var icons = {}
+var initial_positions = {}
+var active = false
 
-var lines: Array = []
+# Saude - Educacao, Moradia
+# Educacao - Justica, Saude
+# Moradia - Saude, Liberdade
+# Liberdade - Justica, Moradia
+# Justica - Liberdade, Educacao
+var connections_pairs = [
+	["Saude", "Educacao"],
+	["Saude", "Moradia"],
+	["Educacao", "Justica"],
+	["Moradia", "Liberdade"],
+	["Liberdade", "Justica"]
+]
 
 func _ready():
-	lines = connections.get_children()
-	pentagono.modulate.a = 1.0 
-	
-	for line in lines:
-		line.modulate.a = 0.0
+	randomize()
 	
 	await get_tree().process_frame
-	center_pos = get_viewport_rect().size / 2.0
+	
+	var icon_names = ["Saude", "Educacao", "Moradia", "Liberdade", "Justica"]
+	for icon_name in icon_names:
+		var node = container.get_node_or_null(icon_name)
+		if node:
+			icons[icon_name] = node
+			initial_positions[icon_name] = node.position
+			node.pivot_offset = node.size / 2.0
+	
+	lines_container = Node2D.new()
+	container.add_child(lines_container)
+	container.move_child(lines_container, 0)
+
+var is_locked: bool = false
 
 func _input(event):
-	if completed: return
+	if event is InputEventScreenTouch or event is InputEventMouseButton or event is InputEventScreenDrag or (event is InputEventMouseMotion and event.button_mask > 0):
+		if not is_locked:
+			var touched_name = get_touched_icon_name(event.position)
+			if touched_name and touched_name != current_active_icon:
+				start_interaction(touched_name)
 
-	if event is InputEventMouseButton or event is InputEventScreenTouch:
-		if event.pressed:
-			is_dragging = true
-			current_angle = (event.position - center_pos).angle()
-		else:
-			is_dragging = false
+func get_touched_icon_name(screen_pos: Vector2) -> String:
+	for icon_name in icons:
+		var icon = icons[icon_name]
+		if icon.is_visible_in_tree() and icon.get_global_rect().has_point(screen_pos):
+			return icon_name
+	return ""
 
-	if (event is InputEventMouseMotion or event is InputEventScreenDrag) and is_dragging:
-		process_rotation(event.position)
+var current_active_icon = ""
 
-func process_rotation(touch_pos: Vector2):
-	var vector_to_mouse = touch_pos - center_pos
-	var new_angle = vector_to_mouse.angle()
+func start_interaction(touched_name: String):
+	if is_locked: return
 	
-	var angle_delta = angle_difference(current_angle, new_angle)
+	is_locked = true
+	active = true
+	current_active_icon = touched_name
+	var icon = icons[touched_name]
 	
-	total_rotation += abs(angle_delta)
+	var t_rot = create_tween()
+	t_rot.tween_property(icon, "rotation_degrees", 360.0, 0.4).as_relative().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	
-	current_angle = new_angle
-	update_visuals()
+	shuffle_positions()
 	
-	if total_rotation >= 2 * PI:
-		finish_interaction()
+	await get_tree().create_timer(0.5).timeout
+	
+	show_lines()
 
-func update_visuals():
-	var total_lines = lines.size()
-	var progress_value = (total_rotation / (2 * PI)) * total_lines
+func shuffle_positions():
+	var positions = []
+	for p in initial_positions.values():
+		positions.append(p)
 	
-	for i in range(total_lines):
-		var line = lines[i]
+	positions.shuffle()
+	
+	var i = 0
+	var t_move = create_tween().set_parallel(true)
+	for icon_name in icons:
+		t_move.tween_property(icons[icon_name], "position", positions[i], 0.5).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+		i += 1
+
+func show_lines():
+	for c in lines_container.get_children():
+		c.queue_free()
+	
+	for pair in connections_pairs:
+		if icons.has(pair[0]) and icons.has(pair[1]):
+			create_animated_line(icons[pair[0]], icons[pair[1]])
+
+	await get_tree().create_timer(15.0).timeout
+	end_interaction()
+
+func create_animated_line(node_a, node_b):
+	var line = Line2D.new()
+	lines_container.add_child(line)
+	
+	line.width = 4.0
+	line.default_color = Color(0.102, 0.102, 0.718, 1.0) 
+	line.begin_cap_mode = Line2D.LINE_CAP_ROUND
+	line.end_cap_mode = Line2D.LINE_CAP_ROUND
+	line.texture_mode = Line2D.LINE_TEXTURE_TILE
+	
+	
+	var grad = Gradient.new()
+	grad.colors = [Color.WHITE]
+	var tex = GradientTexture2D.new()
+	tex.gradient = grad
+	tex.width = 16
+	tex.height = 16
+	line.texture = tex
+	
+	var mat = ShaderMaterial.new()
+	var shader = Shader.new()
+	
+	shader.code = """
+		shader_type canvas_item;
 		
-		if i < int(progress_value):
-			line.modulate.a = 1.0 
-		elif i == int(progress_value):
-			line.modulate.a = progress_value - i
-		else:
-			line.modulate.a = 0.0 
+		void fragment() {
+			float speed = 3.0;
+			float dash_freq = 10.0; // Adjusted for texture
+			
+			// UV.x maps along the line length.
+			float pattern = sin(UV.x * dash_freq - TIME * speed);
+			
+			if (pattern < 0.0) {
+				discard;
+			}
+			// Use the LINE_COLOR (vertex color) which comes from default_color
+			COLOR = COLOR;
+		}
+	"""
+	mat.shader = shader
+	line.material = mat
+	
+	
+	var p1 = node_a.position + node_a.size / 2.0
+	var p2 = node_b.position + node_b.size / 2.0
+	
+	line.add_point(p1)
+	line.add_point(p1) 
+	var t = line.create_tween()
+	t.tween_method(func(val):
+		if is_instance_valid(line) and line.get_point_count() > 1:
+			line.set_point_position(1, val),
+		p1, p2, 0.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	
+	line.modulate.a = 0.0
+	var t_fade = line.create_tween()
+	t_fade.tween_property(line, "modulate:a", 1.0, 0.2)
 
-func finish_interaction():
-	completed = true
+func end_interaction():
+	active = false
+	current_active_icon = ""
+	is_locked = false
 	
-	for line in lines:
-		line.modulate.a = 1.0
+	var t_out = create_tween()
+	t_out.tween_property(lines_container, "modulate:a", 0.0, 0.3)
+	t_out.tween_callback(func():
+		lines_container.modulate.a = 1.0
+		for c in lines_container.get_children():
+			c.queue_free()
+	)
 	
-	print("Ciclo completo. Aguardando 10s para apagar...")
-	await get_tree().create_timer(10.0).timeout
-	reset_interaction()
-
-func reset_interaction():
-	var tween = create_tween()
-	
-	for line in lines:
-		tween.tween_property(line, "modulate:a", 0.0, 1.0)
-	
-	await tween.finished
-	
-	total_rotation = 0.0
-	completed = false
-	print("Interação resetada (Ícones mantidos visíveis).")
+	var t_reset = create_tween().set_parallel(true)
+	for icon_name in icons:
+		t_reset.tween_property(icons[icon_name], "position", initial_positions[icon_name], 0.5).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+		t_reset.tween_property(icons[icon_name], "rotation", 0.0, 0.5)
