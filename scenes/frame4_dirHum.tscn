@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bm7dmwaht8a7b"]
+[gd_scene load_steps=13 format=3 uid="uid://bm7dmwaht8a7b"]
 
 [ext_resource type="Texture2D" uid="uid://uh7o2qos6rrc" path="res://assets/images/Frame 4 - Direitos Humanos.png" id="1_njmjs"]
+[ext_resource type="VideoStream" uid="uid://5ixuxpplh6ov" path="res://assets/Videos/Frame4_video.ogv" id="3_ge64o"]
 [ext_resource type="Texture2D" uid="uid://cdfopk5gj6w6n" path="res://assets/button/ant_capa.png" id="4_sks6p"]
 [ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/buttons.gd" id="5_ap47d"]
 [ext_resource type="Script" uid="uid://dqi8p32j3h6ts" path="res://scripts/InteracaoFrame4.gd" id="5_ge64o"]
@@ -10,6 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://ch5jsbwvfjrcf" path="res://assets/images/Components_Frame 4/Elem_Moradia.png" id="9_rk38d"]
 [ext_resource type="Texture2D" uid="uid://likdphl5lsl3" path="res://assets/images/Components_Frame 4/Elem_Liberdade.png" id="10_0503n"]
 [ext_resource type="Texture2D" uid="uid://hx7nte7kymnr" path="res://assets/images/Components_Frame 4/Elem_Justica.png" id="11_i1cq7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ap47d"]
+corner_radius_top_left = 110
+corner_radius_top_right = 110
+corner_radius_bottom_right = 110
+corner_radius_bottom_left = 110
 
 [node name="Frame4_tscn" type="Node2D"]
 script = ExtResource("5_ge64o")
@@ -27,6 +34,53 @@ anchors_preset = -1
 anchor_right = 25.6
 anchor_bottom = 19.2
 texture = ExtResource("1_njmjs")
+
+[node name="Sprit2dPanel" type="Panel" parent="Background"]
+visible = false
+clip_children = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 5.6000004
+anchor_top = 9.6
+anchor_right = 8.650001
+anchor_bottom = 12.400001
+offset_left = -1.5258789e-05
+offset_top = -8.0
+offset_right = -2.0000305
+offset_bottom = -3.0517578e-05
+theme_override_styles/panel = SubResource("StyleBoxFlat_ap47d")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Background/Sprit2dPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+metadata/_edit_lock_ = true
+
+[node name="SubViewport" type="SubViewport" parent="Background/Sprit2dPanel/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(120, 120)
+render_target_update_mode = 4
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Background/Sprit2dPanel/SubViewportContainer/SubViewport"]
+anchors_preset = -1
+anchor_left = -0.57500005
+anchor_top = -0.42900002
+anchor_right = 1.692
+anchor_bottom = 1.5000001
+offset_left = -75.87499
+offset_top = 53.776
+offset_right = 52.73996
+offset_bottom = 57.999985
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("3_ge64o")
+expand = true
+loop = true
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 328.0
@@ -68,10 +122,10 @@ anchor_left = 0.53497165
 anchor_top = 0.4694915
 anchor_right = 0.63100004
 anchor_bottom = 0.586
-offset_right = 0.20098877
+offset_left = -25.0
+offset_right = -24.799011
 offset_bottom = 0.25997925
 texture = ExtResource("7_y2yqh")
-metadata/_edit_use_anchors_ = true
 
 [node name="Educacao" type="TextureRect" parent="InteractiveArea/PentagonContainer"]
 layout_mode = 1
@@ -80,7 +134,8 @@ anchor_left = 0.7977316
 anchor_top = 0.6135593
 anchor_right = 0.94521934
 anchor_bottom = 0.76230514
-offset_right = -0.021026611
+offset_left = -25.0
+offset_right = -25.021027
 offset_bottom = 0.23995972
 texture = ExtResource("8_84db8")
 metadata/_edit_use_anchors_ = true
@@ -88,26 +143,27 @@ metadata/_edit_use_anchors_ = true
 [node name="Moradia" type="TextureRect" parent="InteractiveArea/PentagonContainer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.68809074
-anchor_top = 0.8084746
-anchor_right = 0.8087544
-anchor_bottom = 0.9574407
-offset_right = 0.16894531
-offset_bottom = 0.10998535
+anchor_left = 0.69376177
+anchor_top = 0.80508476
+anchor_right = 0.8144254
+anchor_bottom = 0.9540509
+offset_left = -20.99997
+offset_top = 31.0
+offset_right = -20.831024
+offset_bottom = 31.109985
 texture = ExtResource("9_rk38d")
-metadata/_edit_use_anchors_ = true
 
 [node name="Liberdade" type="TextureRect" parent="InteractiveArea/PentagonContainer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.37100002
-anchor_top = 0.81200004
-anchor_right = 0.522
-anchor_bottom = 0.96300006
-offset_left = -7.259018
-offset_top = -0.08001709
-offset_right = -7.1380005
-offset_bottom = -0.17004395
+anchor_left = 0.312
+anchor_top = 0.85400003
+anchor_right = 0.469
+anchor_bottom = 1.014
+offset_left = 0.95199585
+offset_top = 5.139984
+offset_right = -2.1010132
+offset_bottom = -0.26000977
 texture = ExtResource("10_0503n")
 
 [node name="Justica" type="TextureRect" parent="InteractiveArea/PentagonContainer"]
@@ -117,9 +173,9 @@ anchor_left = 0.24800001
 anchor_top = 0.615
 anchor_right = 0.35900003
 anchor_bottom = 0.763
-offset_left = 0.80799866
+offset_left = -24.192001
 offset_top = 0.1499939
-offset_right = 0.08898926
+offset_right = -24.91101
 offset_bottom = -0.17001343
 texture = ExtResource("11_i1cq7")
 

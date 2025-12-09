@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var container = $InteractiveArea/PentagonContainer
+@onready var video_panel = $Background/Sprit2dPanel
+@onready var video_player = $Background/Sprit2dPanel/SubViewportContainer/SubViewport/VideoStreamPlayer
 var lines_container: Node2D
 
 var icons = {}
@@ -60,6 +62,12 @@ func start_interaction(touched_name: String):
 	
 	is_locked = true
 	active = true
+	
+	if video_panel:
+		video_panel.visible = true
+	if video_player:
+		video_player.play()
+		
 	current_active_icon = touched_name
 	var icon = icons[touched_name]
 	
@@ -93,7 +101,7 @@ func show_lines():
 		if icons.has(pair[0]) and icons.has(pair[1]):
 			create_animated_line(icons[pair[0]], icons[pair[1]])
 
-	await get_tree().create_timer(15.0).timeout
+	await get_tree().create_timer(29.0).timeout
 	end_interaction()
 
 func create_animated_line(node_a, node_b):
@@ -101,7 +109,7 @@ func create_animated_line(node_a, node_b):
 	lines_container.add_child(line)
 	
 	line.width = 4.0
-	line.default_color = Color(0.102, 0.102, 0.718, 1.0) 
+	line.default_color = Color(0.102, 0.102, 0.718, 1.0)
 	line.begin_cap_mode = Line2D.LINE_CAP_ROUND
 	line.end_cap_mode = Line2D.LINE_CAP_ROUND
 	line.texture_mode = Line2D.LINE_TEXTURE_TILE
@@ -143,7 +151,7 @@ func create_animated_line(node_a, node_b):
 	var p2 = node_b.position + node_b.size / 2.0
 	
 	line.add_point(p1)
-	line.add_point(p1) 
+	line.add_point(p1)
 	var t = line.create_tween()
 	t.tween_method(func(val):
 		if is_instance_valid(line) and line.get_point_count() > 1:
@@ -158,6 +166,11 @@ func end_interaction():
 	active = false
 	current_active_icon = ""
 	is_locked = false
+	
+	if video_player:
+		video_player.stop()
+	if video_panel:
+		video_panel.visible = false
 	
 	var t_out = create_tween()
 	t_out.tween_property(lines_container, "modulate:a", 0.0, 0.3)
