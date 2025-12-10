@@ -8,8 +8,6 @@ var btn_proximo: Button
 @onready var sfx_win = get_node_or_null("SFX_Win")
 
 var pairings = []
-# Structure: { "circle": Node, "target": Node, "locked": bool, "velocity": Vector2, "dragging": bool }
-
 var gravity = Vector2(0, 100)
 var restitution = 0.6
 var damping = 0.98
@@ -20,6 +18,10 @@ var pilares_preenchidos = 0
 var total_pilares = 5
 var is_finished = false
 var original_city_scale = Vector2.ONE
+
+var city_anim_playing = false
+var city_anim_speed = 3.0
+var city_anim_accum = 0.0
 
 func _ready():
 	if city_sprite:
@@ -59,10 +61,28 @@ func init_game():
 		msg_panel.modulate.a = 0
 	
 	if btn_proximo:
-		btn_proximo.disabled = false
 		btn_proximo.visible = true
+		btn_proximo.disabled = false
+
+func advance_city_stage(frame_idx):
+	if city_sprite:
+		if not city_sprite.visible:
+			city_sprite.visible = true
+			city_sprite.scale = Vector2.ZERO
+			var t = create_tween()
+			t.tween_property(city_sprite, "scale", original_city_scale, 0.3).set_trans(Tween.TRANS_BACK)
+		
+		city_sprite.frame = frame_idx
+		var tween = create_tween()
+		tween.tween_property(city_sprite, "scale", original_city_scale * 1.05, 0.1).set_trans(Tween.TRANS_BACK)
+		tween.tween_property(city_sprite, "scale", original_city_scale, 0.1)
 
 func _process(delta):
+	if city_anim_playing and city_sprite:
+		city_anim_accum += delta * city_anim_speed
+		var frame_idx = int(city_anim_accum) % 5
+		city_sprite.frame = frame_idx
+	
 	if is_finished:
 		return
 
@@ -78,20 +98,17 @@ func _process(delta):
 	var bounds = area_node.get_rect()
 	
 	for p in pairings:
-		if p.locked:
-			continue
+		if p.locked: continue
 			
 		var circle: TextureRect = p.circle
 		
 		if p.dragging:
-			pass 
+			pass
 		else:
 			p.velocity += gravity * delta
 			p.velocity += tilt
 		
 			var new_pos = circle.position + p.velocity * delta
-			
-		
 			var c_size = circle.size * circle.scale
 			
 			if new_pos.x < bounds.position.x:
@@ -104,7 +121,6 @@ func _process(delta):
 			if new_pos.y < bounds.position.y:
 				new_pos.y = bounds.position.y
 				p.velocity.y *= -restitution
-			
 			elif new_pos.y + c_size.y > bounds.position.y + bounds.size.y:
 				new_pos.y = bounds.position.y + bounds.size.y - c_size.y
 				p.velocity.y *= -restitution
@@ -124,8 +140,7 @@ func check_fit(p):
 		var c_center = circle.get_global_rect().get_center()
 		var t_center = target.get_global_rect().get_center()
 		
-		var dist = c_center.distance_to(t_center)
-		if dist < 50.0:
+		if c_center.distance_to(t_center) < 50.0:
 			lock_piece(p)
 
 func lock_piece(p):
@@ -156,19 +171,10 @@ func lock_piece(p):
 		t.tween_interval(0.5)
 		t.tween_callback(finalize_game)
 
-func advance_city_stage(frame_idx):
-	if city_sprite:
-		city_sprite.visible = true
-		city_sprite.frame = frame_idx
-		
-		city_sprite.scale = Vector2.ZERO
-		city_sprite.modulate.a = 0
-		
-		var tween = create_tween()
-		tween.tween_property(city_sprite, "scale", original_city_scale, 0.3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
-		tween.parallel().tween_property(city_sprite, "modulate:a", 1.0, 0.3)
-
 func finalize_game():
+	is_finished = true
+	city_anim_playing = true
+	
 	if city_sprite:
 		var pulse = create_tween()
 		pulse.tween_property(city_sprite, "scale", original_city_scale * 1.1, 0.2)
