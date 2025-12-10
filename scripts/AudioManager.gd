@@ -6,7 +6,6 @@ signal audio_forced_on
 var is_enabled: bool = true
 var current_page_index: int = 0
 
-# controla se o vídeo da página atual está rodando
 var video_playing: bool = false  
 
 var _player: AudioStreamPlayer
@@ -19,6 +18,7 @@ var _streams: Array[AudioStream] = [
 	preload("res://assets/audio/t5_audio.wav"),
 	preload("res://assets/audio/t6_audio.wav"),
 	preload("res://assets/audio/t7_audio.wav"),
+	preload("res://assets/audio/t9_audio.wav"),
 	preload("res://assets/audio/t8_audio.wav")
 ]
 
@@ -42,11 +42,9 @@ func set_enabled(value: bool) -> void:
 	if is_enabled:
 		emit_signal("audio_forced_on")
 
-		# Se vídeo está rodando → parar vídeo (regra 2)
 		if video_playing:
 			get_tree().call_group("video_group", "force_video_stop")
 
-		# depois que o vídeo parar, tocar áudio (regra 2)
 		play_for_page(current_page_index)
 
 	else:
@@ -67,7 +65,6 @@ func _apply_enabled_state() -> void:
 func play_for_page(page_index: int) -> void:
 	current_page_index = clamp(page_index, 0, _streams.size() - 1)
 
-	# Vídeo rodando = NUNCA tocar áudio da página 5
 	if video_playing:
 		return
 	
