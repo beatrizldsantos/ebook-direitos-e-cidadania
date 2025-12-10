@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6q1pfwc2u7sa"
-path="res://.godot/imported/Frame 7 - O Futuro da Cidadania (2).png-99db311cdf9de908b01807a25f67613c.ctex"
+uid="uid://esbtl2sb6dgv"
+path="res://.godot/imported/Circ_tecnologia.png-1ffc4e6d1c06e35bb7916447fd83f706.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Frame 7 - O Futuro da Cidadania (2).png"
-dest_files=["res://.godot/imported/Frame 7 - O Futuro da Cidadania (2).png-99db311cdf9de908b01807a25f67613c.ctex"]
+source_file="res://assets/images/Components_Frame 7/Circ_tecnologia.png"
+dest_files=["res://.godot/imported/Circ_tecnologia.png-1ffc4e6d1c06e35bb7916447fd83f706.ctex"]
 
 [params]
 

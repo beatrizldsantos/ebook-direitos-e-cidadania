@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7hcdbspg4h1u"
-path="res://.godot/imported/C_direitos_humanos.png-e58130fa2e223c051c819bb292a8c691.ctex"
+uid="uid://c8ne1tc180tfq"
+path="res://.godot/imported/Tecnologia.png-58fcad90e6042747628d254a6920d4e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Components_Frame 7/C_direitos_humanos.png"
-dest_files=["res://.godot/imported/C_direitos_humanos.png-e58130fa2e223c051c819bb292a8c691.ctex"]
+source_file="res://assets/images/Components_Frame 7/Tecnologia.png"
+dest_files=["res://.godot/imported/Tecnologia.png-58fcad90e6042747628d254a6920d4e8.ctex"]
 
 [params]
 

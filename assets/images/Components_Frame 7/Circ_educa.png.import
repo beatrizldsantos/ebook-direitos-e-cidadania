@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btgdo1mk2g7fd"
-path="res://.godot/imported/C_o_que_e_cidadania.png-25c26fcacf3ea9530338b994d240cf73.ctex"
+uid="uid://b3gqnyxcrp3yi"
+path="res://.godot/imported/Circ_educa.png-f217645b1066dd8e5c39b427e65863d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Components_Frame 7/C_o_que_e_cidadania.png"
-dest_files=["res://.godot/imported/C_o_que_e_cidadania.png-25c26fcacf3ea9530338b994d240cf73.ctex"]
+source_file="res://assets/images/Components_Frame 7/Circ_educa.png"
+dest_files=["res://.godot/imported/Circ_educa.png-f217645b1066dd8e5c39b427e65863d3.ctex"]
 
 [params]
 

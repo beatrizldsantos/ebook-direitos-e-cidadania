@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drvthp208bwm3"
-path="res://.godot/imported/balaoDireitosHumanoos.png-d95d1f270819883d4cde939db660b2d6.ctex"
+uid="uid://da5sfpi6xavgx"
+path="res://.godot/imported/Democracia.png-e95f36d4766267be743c4de21d970c95.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Components_Frame 7/balaoDireitosHumanoos.png"
-dest_files=["res://.godot/imported/balaoDireitosHumanoos.png-d95d1f270819883d4cde939db660b2d6.ctex"]
+source_file="res://assets/images/Components_Frame 7/Democracia.png"
+dest_files=["res://.godot/imported/Democracia.png-e95f36d4766267be743c4de21d970c95.ctex"]
 
 [params]
 

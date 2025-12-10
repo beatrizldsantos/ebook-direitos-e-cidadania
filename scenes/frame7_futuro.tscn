@@ -1,36 +1,22 @@
-[gd_scene load_steps=21 format=3 uid="uid://bo4r6a78x4m81"]
+[gd_scene load_steps=16 format=3 uid="uid://bo4r6a78x4m81"]
 
-[ext_resource type="Script" uid="uid://b0gsok8rgxr5j" path="res://scripts/InteracoeFrame7.gd" id="1_vdvws"]
-[ext_resource type="Texture2D" uid="uid://duqadxgtlq6ql" path="res://assets/images/Components_Frame 7/balaoRealxFormal.png" id="2_ew34d"]
-[ext_resource type="Texture2D" uid="uid://c6q1pfwc2u7sa" path="res://assets/images/Frame 7 - O Futuro da Cidadania (2).png" id="2_y0n1r"]
+[ext_resource type="Texture2D" uid="uid://dn1vqkeciu3hk" path="res://assets/images/Components_Frame 7/Circ_igualdade.png" id="2_4m46k"]
+[ext_resource type="Texture2D" uid="uid://dx20txr7feo2f" path="res://assets/images/Components_Frame 7/Circ_presenv.png" id="3_vqfq3"]
+[ext_resource type="Texture2D" uid="uid://esbtl2sb6dgv" path="res://assets/images/Components_Frame 7/Circ_tecnologia.png" id="4_8kdit"]
 [ext_resource type="Texture2D" uid="uid://cdfopk5gj6w6n" path="res://assets/button/ant_capa.png" id="4_vdvws"]
 [ext_resource type="Script" uid="uid://d26rndu622wp5" path="res://scripts/buttons.gd" id="5_bc2i1"]
-[ext_resource type="Texture2D" uid="uid://djuilssv0slmx" path="res://assets/images/Components_Frame 7/C_part_social.png" id="6_bc2i1"]
+[ext_resource type="Texture2D" uid="uid://ubp60p1femly" path="res://assets/images/Components_Frame 7/Circ_democracia.png" id="5_ew34d"]
 [ext_resource type="Texture2D" uid="uid://c44a0li12xthv" path="res://assets/button/prox.png" id="6_y2r1v"]
-[ext_resource type="Texture2D" uid="uid://ck36cyhxs1cn7" path="res://assets/images/Components_Frame 7/C_part_cidadania_formal.png" id="7_y2r1v"]
-[ext_resource type="Texture2D" uid="uid://b3shfjnr03ql7" path="res://assets/images/Components_Frame 7/balaoParticipSocial.png" id="8_8kdit"]
-[ext_resource type="Texture2D" uid="uid://b581ah8t8rwfs" path="res://assets/images/Components_Frame 2/Olimpiadas.png" id="8_hfr50"]
-[ext_resource type="Texture2D" uid="uid://5glxfccboam8" path="res://assets/images/Components_Frame 7/C_estadania.png" id="8_y0n1r"]
-[ext_resource type="Texture2D" uid="uid://7hcdbspg4h1u" path="res://assets/images/Components_Frame 7/C_direitos_humanos.png" id="9_ealhy"]
-[ext_resource type="Texture2D" uid="uid://5d4ucujg8shh" path="res://assets/images/Components_Frame 7/spritesheet_revising.png" id="9_ic1vq"]
-[ext_resource type="Texture2D" uid="uid://dgy5dsxuu4d8i" path="res://assets/images/Components_Frame 7/balaooquecidadania.png" id="10_ew34d"]
-[ext_resource type="Script" uid="uid://c13stbb0ndy85" path="res://scripts/sprite2dFrame2e8.gd" id="10_h1ojk"]
-[ext_resource type="Texture2D" uid="uid://btgdo1mk2g7fd" path="res://assets/images/Components_Frame 7/C_o_que_e_cidadania.png" id="11_8kdit"]
-[ext_resource type="Texture2D" uid="uid://bl2fpk5uttv8v" path="res://assets/images/Components_Frame 7/Botao_de_arrastar.png" id="11_y0n1r"]
-[ext_resource type="Texture2D" uid="uid://pmfl7a58vpyn" path="res://assets/images/Components_Frame 7/balaoEstadania.png" id="12_ytrj8"]
-[ext_resource type="Texture2D" uid="uid://drvthp208bwm3" path="res://assets/images/Components_Frame 7/balaoDireitosHumanoos.png" id="14_hfr50"]
+[ext_resource type="Texture2D" uid="uid://b3gqnyxcrp3yi" path="res://assets/images/Components_Frame 7/Circ_educa.png" id="6_ytrj8"]
+[ext_resource type="Texture2D" uid="uid://c3wcy7vxym7kf" path="res://assets/images/Frame 7 - O Futuro da Cidadania.png" id="7_bc2i1"]
+[ext_resource type="Texture2D" uid="uid://cy1g88rhgnc1j" path="res://assets/images/Components_Frame 7/Igualdade.png" id="7_hfr50"]
+[ext_resource type="Texture2D" uid="uid://dsjsmr5wa684y" path="res://assets/images/Components_Frame 7/Sustentabilidade.png" id="8_ic1vq"]
+[ext_resource type="Texture2D" uid="uid://c8ne1tc180tfq" path="res://assets/images/Components_Frame 7/Tecnologia.png" id="9_h1ojk"]
+[ext_resource type="Texture2D" uid="uid://da5sfpi6xavgx" path="res://assets/images/Components_Frame 7/Democracia.png" id="10_25lyf"]
+[ext_resource type="Texture2D" uid="uid://c5r3n2v8t7ugv" path="res://assets/images/Components_Frame 7/Educacao.png" id="11_0lw54"]
+[ext_resource type="Script" uid="uid://vtnvp145j5v3" path="res://scripts/frame7_interactions.gd" id="12_custom"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25lyf"]
-bg_color = Color(1, 1, 1, 1)
-
-[node name="Frame7_tscn" type="Node2D" node_paths=PackedStringArray("area_limite") groups=["page7"]]
-script = ExtResource("1_vdvws")
-area_limite = NodePath("Interacoes/AreaLimite")
-tex_balao_cidadania = ExtResource("2_ew34d")
-tex_balao_estadania = ExtResource("12_ytrj8")
-tex_balao_direitos = ExtResource("14_hfr50")
-tex_balao_participacao = ExtResource("8_8kdit")
-tex_balao_oque_e_cid = ExtResource("10_ew34d")
+[node name="Frame7_tscn" type="Node2D" groups=["page7"]]
 
 [node name="ControlFundodeTela" type="Control" parent="."]
 layout_mode = 3
@@ -41,141 +27,204 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 0
 offset_right = 1024.0
 offset_bottom = 768.0
-texture = ExtResource("2_y0n1r")
-
-[node name="Control" type="Control" parent="ControlFundodeTela/Fundo de tela"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Balaoolimpiadas" type="TextureRect" parent="ControlFundodeTela/Fundo de tela/Control"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 4.9500003
-anchor_top = 7.9750004
-anchor_right = 14.750001
-anchor_bottom = 13.1
-offset_left = -1.5258789e-05
-offset_right = -6.1035156e-05
-texture = ExtResource("8_hfr50")
-
-[node name="Sprit2dPanel" type="Panel" parent="ControlFundodeTela/Fundo de tela/Control"]
-clip_children = 2
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 15.125001
-anchor_top = 7.9000006
-anchor_right = 23.175
-anchor_bottom = 15.35
-offset_left = 98.99994
-offset_top = 200.99997
-offset_right = 23.0
-offset_bottom = 96.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_25lyf")
-
-[node name="Sprite2D" type="Sprite2D" parent="ControlFundodeTela/Fundo de tela/Control/Sprit2dPanel"]
-position = Vector2(110.50004, 104)
-scale = Vector2(0.57708335, 0.56992096)
-texture = ExtResource("9_ic1vq")
-hframes = 3
-frame = 1
-script = ExtResource("10_h1ojk")
-total_frames = 3
+texture = ExtResource("7_bc2i1")
 
 [node name="Interacoes" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("12_custom")
 metadata/_edit_use_anchors_ = true
-
-[node name="Topics" type="Control" parent="Interacoes"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-metadata/_edit_use_anchors_ = true
-
-[node name="TopicItem_ParticipacaoSocial" type="TextureRect" parent="Interacoes/Topics"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 3.5000002
-anchor_top = 9.150001
-anchor_right = 9.650001
-anchor_bottom = 10.950001
-offset_left = -1.5258789e-05
-offset_top = -3.0517578e-05
-offset_right = -3.0517578e-05
-offset_bottom = -3.0517578e-05
-mouse_filter = 0
-texture = ExtResource("6_bc2i1")
-stretch_mode = 5
-
-[node name="TopicItem_Cidadania" type="TextureRect" parent="Interacoes/Topics"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 17.275002
-anchor_top = 8.875
-anchor_right = 23.925001
-anchor_bottom = 10.700001
-offset_left = -6.1035156e-05
-offset_right = 2.999939
-offset_bottom = -3.0517578e-05
-mouse_filter = 0
-texture = ExtResource("7_y2r1v")
-stretch_mode = 5
-
-[node name="TopicItem_Estadania" type="TextureRect" parent="Interacoes/Topics"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 18.1
-anchor_top = 5.9750004
-anchor_right = 23.475
-anchor_bottom = 8.35
-offset_top = -1.5258789e-05
-offset_bottom = -9.0
-mouse_filter = 0
-texture = ExtResource("8_y0n1r")
-stretch_mode = 5
-
-[node name="TopicItem_DireitosHumanos" type="TextureRect" parent="Interacoes/Topics"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 10.625001
-anchor_top = 8.8
-anchor_right = 16.150002
-anchor_bottom = 10.875001
-offset_left = -3.0517578e-05
-offset_right = -6.1035156e-05
-offset_bottom = -3.0517578e-05
-mouse_filter = 0
-texture = ExtResource("9_ealhy")
-stretch_mode = 5
-
-[node name="TopicItem_OQueECid" type="TextureRect" parent="Interacoes/Topics"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 4.15
-anchor_top = 6.15
-anchor_right = 9.450001
-anchor_bottom = 8.225
-offset_right = -3.0517578e-05
-mouse_filter = 0
-texture = ExtResource("11_8kdit")
-stretch_mode = 5
 
 [node name="AreaLimite" type="ReferenceRect" parent="Interacoes"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 3.0690002
-anchor_top = 5.0670004
-anchor_right = 24.603
-anchor_bottom = 12.521001
-offset_left = -11.76001
-offset_top = -7.680023
-offset_right = 4.880005
-offset_bottom = 4.159973
+anchor_left = 8.167001
+anchor_top = 6.406
+anchor_right = 24.322
+anchor_bottom = 16.2
+offset_left = 0.3199768
+offset_top = -0.23999023
+offset_right = 0.11999512
+offset_bottom = -65.0
 border_color = Color(1, 1, 1, 1)
+
+[node name="Circ_igualdade" type="TextureRect" parent="Interacoes"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 19.85
+anchor_top = 8.125
+anchor_right = 22.35
+anchor_bottom = 10.625001
+offset_left = -411.0
+offset_right = -411.0
+offset_bottom = -3.0517578e-05
+texture = ExtResource("2_4m46k")
+
+[node name="Circ_presenvacao" type="TextureRect" parent="Interacoes"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 17.25
+anchor_top = 8.125
+anchor_right = 19.75
+anchor_bottom = 10.6
+offset_left = -228.0
+offset_top = 80.0
+offset_right = -228.0
+offset_bottom = 81.0
+texture = ExtResource("3_vqfq3")
+
+[node name="Circ_tecnologia" type="TextureRect" parent="Interacoes"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 16.400002
+anchor_top = 10.85
+anchor_right = 18.900002
+anchor_bottom = 13.35
+offset_left = -6.1035156e-05
+offset_right = -6.1035156e-05
+texture = ExtResource("4_8kdit")
+
+[node name="Circ_democracia" type="TextureRect" parent="Interacoes"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 12.075001
+anchor_top = 8.125
+anchor_right = 14.650001
+anchor_bottom = 10.625001
+offset_left = 360.99997
+offset_right = 358.0
+offset_bottom = -3.0517578e-05
+texture = ExtResource("5_ew34d")
+
+[node name="Circ_educa" type="TextureRect" parent="Interacoes"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 9.625
+anchor_top = 8.125
+anchor_right = 12.125001
+anchor_bottom = 10.625001
+offset_left = 459.0
+offset_top = 109.0
+offset_right = 458.99997
+offset_bottom = 108.99997
+texture = ExtResource("6_ytrj8")
+
+[node name="Igualdade" type="TextureRect" parent="Interacoes"]
+visible = false
+layout_mode = 0
+offset_left = 844.0
+offset_top = 485.0
+offset_right = 967.0
+offset_bottom = 559.0
+texture = ExtResource("7_hfr50")
+
+[node name="Preservacao" type="TextureRect" parent="Interacoes"]
+visible = false
+layout_mode = 0
+offset_left = 718.0
+offset_top = 485.0
+offset_right = 842.0
+offset_bottom = 560.0
+texture = ExtResource("8_ic1vq")
+
+[node name="Tecnologia" type="TextureRect" parent="Interacoes"]
+visible = false
+layout_mode = 0
+offset_left = 593.0
+offset_top = 485.0
+offset_right = 716.0
+offset_bottom = 560.0
+texture = ExtResource("9_h1ojk")
+
+[node name="Democracia" type="TextureRect" parent="Interacoes"]
+visible = false
+layout_mode = 0
+offset_left = 468.0
+offset_top = 485.0
+offset_right = 591.0
+offset_bottom = 560.0
+texture = ExtResource("10_25lyf")
+
+[node name="Educacao" type="TextureRect" parent="Interacoes"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 8.650001
+anchor_top = 14.225
+anchor_right = 11.725
+anchor_bottom = 16.075
+offset_left = -7.0000305
+offset_top = -84.0
+offset_right = -7.0
+offset_bottom = -83.0
+texture = ExtResource("11_0lw54")
+
+[node name="Basefixa_Igualdade" type="TextureRect" parent="Interacoes"]
+layout_mode = 0
+offset_left = 844.0
+offset_top = 566.0
+offset_right = 967.0
+offset_bottom = 640.0
+texture = ExtResource("7_hfr50")
+
+[node name="Basefixa_Preservacao" type="TextureRect" parent="Interacoes"]
+layout_mode = 0
+offset_left = 718.0
+offset_top = 566.0
+offset_right = 842.0
+offset_bottom = 641.0
+texture = ExtResource("8_ic1vq")
+
+[node name="Basefixa_Tecnologia" type="TextureRect" parent="Interacoes"]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 566.0
+offset_right = 716.0
+offset_bottom = 641.0
+texture = ExtResource("9_h1ojk")
+
+[node name="Basefixa_Democracia" type="TextureRect" parent="Interacoes"]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 566.0
+offset_right = 591.0
+offset_bottom = 641.0
+texture = ExtResource("10_25lyf")
+
+[node name="Basefixa_Educacao" type="TextureRect" parent="Interacoes"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 8.650001
+anchor_top = 14.225
+anchor_right = 11.725
+anchor_bottom = 16.075
+offset_left = -7.0000305
+offset_top = -3.0
+offset_right = -7.0
+offset_bottom = -2.0
+texture = ExtResource("11_0lw54")
+
+[node name="MensagemFinal" type="Panel" parent="Interacoes"]
+visible = false
+layout_mode = 0
+offset_left = 312.0
+offset_top = 334.0
+offset_right = 712.0
+offset_bottom = 434.0
+
+[node name="Label" type="Label" parent="Interacoes/MensagemFinal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quando os pilares da cidadania estão equilibrados, o futuro se torna mais justo e democrático."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="VBoxContainerBotao" type="VBoxContainer" parent="."]
 offset_left = 328.0
@@ -197,24 +246,6 @@ layout_mode = 2
 icon = ExtResource("6_y2r1v")
 flat = true
 script = ExtResource("5_bc2i1")
-
-[node name="DragButton" type="TextureButton" parent="."]
-anchors_preset = -1
-anchor_left = 12.725
-anchor_top = 6.025
-anchor_right = 14.975
-anchor_bottom = 8.275001
-offset_left = 466.0
-offset_top = 214.0
-offset_right = 556.0
-offset_bottom = 304.0
-texture_normal = ExtResource("11_y0n1r")
-
-[node name="BalaoFeedback" type="TextureRect" parent="DragButton"]
-layout_mode = 0
-offset_top = -150.0
-offset_bottom = -96.0
-mouse_filter = 2
 
 [connection signal="pressed" from="VBoxContainerBotao/HBoxContainer/anterior" to="VBoxContainerBotao/HBoxContainer/anterior" method="pagAnterior"]
 [connection signal="pressed" from="VBoxContainerBotao/HBoxContainer/proximo" to="VBoxContainerBotao/HBoxContainer/proximo" method="proxPag"]

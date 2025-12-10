@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pmfl7a58vpyn"
-path="res://.godot/imported/balaoEstadania.png-3e3599c850b53777dbe32cff90fdf6ba.ctex"
+uid="uid://dx20txr7feo2f"
+path="res://.godot/imported/Circ_presenv.png-62346aab69a7f506313a08e2c98fea8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Components_Frame 7/balaoEstadania.png"
-dest_files=["res://.godot/imported/balaoEstadania.png-3e3599c850b53777dbe32cff90fdf6ba.ctex"]
+source_file="res://assets/images/Components_Frame 7/Circ_presenv.png"
+dest_files=["res://.godot/imported/Circ_presenv.png-62346aab69a7f506313a08e2c98fea8f.ctex"]
 
 [params]
 

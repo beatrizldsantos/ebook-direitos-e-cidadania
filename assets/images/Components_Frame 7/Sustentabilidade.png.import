@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5glxfccboam8"
-path="res://.godot/imported/C_estadania.png-c632f88b3aba24ed96298185388ddf39.ctex"
+uid="uid://dsjsmr5wa684y"
+path="res://.godot/imported/Sustentabilidade.png-848e96aaad94a93bae40d42a4467922d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Components_Frame 7/C_estadania.png"
-dest_files=["res://.godot/imported/C_estadania.png-c632f88b3aba24ed96298185388ddf39.ctex"]
+source_file="res://assets/images/Components_Frame 7/Sustentabilidade.png"
+dest_files=["res://.godot/imported/Sustentabilidade.png-848e96aaad94a93bae40d42a4467922d.ctex"]
 
 [params]
 

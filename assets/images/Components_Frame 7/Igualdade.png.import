@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck36cyhxs1cn7"
-path="res://.godot/imported/C_part_cidadania_formal.png-1f41cf742765d2601b14189e785dfd2b.ctex"
+uid="uid://cy1g88rhgnc1j"
+path="res://.godot/imported/Igualdade.png-0e5c1f7cfe5cfaa21ca0c9d093fb3f04.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Components_Frame 7/C_part_cidadania_formal.png"
-dest_files=["res://.godot/imported/C_part_cidadania_formal.png-1f41cf742765d2601b14189e785dfd2b.ctex"]
+source_file="res://assets/images/Components_Frame 7/Igualdade.png"
+dest_files=["res://.godot/imported/Igualdade.png-0e5c1f7cfe5cfaa21ca0c9d093fb3f04.ctex"]
 
 [params]
 

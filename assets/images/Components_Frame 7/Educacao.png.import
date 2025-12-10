@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djuilssv0slmx"
-path="res://.godot/imported/C_part_social.png-850e40acfcd7b97e8782d0cc5c8b74f2.ctex"
+uid="uid://c5r3n2v8t7ugv"
+path="res://.godot/imported/Educacao.png-da651c4bf367b9010075c19e2b40820c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Components_Frame 7/C_part_social.png"
-dest_files=["res://.godot/imported/C_part_social.png-850e40acfcd7b97e8782d0cc5c8b74f2.ctex"]
+source_file="res://assets/images/Components_Frame 7/Educacao.png"
+dest_files=["res://.godot/imported/Educacao.png-da651c4bf367b9010075c19e2b40820c.ctex"]
 
 [params]
 

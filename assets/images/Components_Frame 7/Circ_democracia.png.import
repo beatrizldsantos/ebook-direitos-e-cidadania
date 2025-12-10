@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgy5dsxuu4d8i"
-path="res://.godot/imported/balaooquecidadania.png-fb8dcc4c97ff99f0cb80d0ef62458348.ctex"
+uid="uid://ubp60p1femly"
+path="res://.godot/imported/Circ_democracia.png-5a746071d7b26e6bd30075e841ca39da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Components_Frame 7/balaooquecidadania.png"
-dest_files=["res://.godot/imported/balaooquecidadania.png-fb8dcc4c97ff99f0cb80d0ef62458348.ctex"]
+source_file="res://assets/images/Components_Frame 7/Circ_democracia.png"
+dest_files=["res://.godot/imported/Circ_democracia.png-5a746071d7b26e6bd30075e841ca39da.ctex"]
 
 [params]
 

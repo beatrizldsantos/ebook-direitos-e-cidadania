@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5d4ucujg8shh"
-path="res://.godot/imported/spritesheet_revising.png-333c7dcabbda84f20a0ef97f2a66391b.ctex"
+uid="uid://dn1vqkeciu3hk"
+path="res://.godot/imported/Circ_igualdade.png-38c17bf2c54dca84395f899959fa7b00.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Components_Frame 7/spritesheet_revising.png"
-dest_files=["res://.godot/imported/spritesheet_revising.png-333c7dcabbda84f20a0ef97f2a66391b.ctex"]
+source_file="res://assets/images/Components_Frame 7/Circ_igualdade.png"
+dest_files=["res://.godot/imported/Circ_igualdade.png-38c17bf2c54dca84395f899959fa7b00.ctex"]
 
 [params]
 
