@@ -127,8 +127,10 @@ func _process(delta):
 			
 			circle.position = new_pos
 			p.velocity *= damping
-		
+
 		check_fit(p)
+	
+	resolve_collisions()
 
 func check_fit(p):
 	if p.locked: return
@@ -170,6 +172,72 @@ func lock_piece(p):
 		var t = create_tween()
 		t.tween_interval(0.5)
 		t.tween_callback(finalize_game)
+
+func resolve_collisions():
+	var bounds = area_node.get_rect()
+	var margin = 15.0 # Margem extra de seguranca
+
+	for i in range(pairings.size()):
+		var p1 = pairings[i]
+		if p1.locked: continue
+		
+		for j in range(i + 1, pairings.size()):
+			var p2 = pairings[j]
+			if p2.locked: continue
+			
+			var c1 = p1.circle
+			var c2 = p2.circle
+			
+			var r1 = (c1.size.x * c1.scale.x) * 0.5
+			var r2 = (c2.size.x * c2.scale.x) * 0.5
+			
+			var center1 = c1.position + c1.size * c1.scale * 0.5
+			var center2 = c2.position + c2.size * c2.scale * 0.5
+			
+			var diff = center1 - center2
+			var dist = diff.length()
+			var min_dist = r1 + r2 + margin
+			
+			if dist < min_dist:
+				var overlap = min_dist - dist
+				var normal = Vector2.UP
+				
+				if dist > 0.1:
+					normal = diff / dist
+				else:
+					normal = Vector2(randf() - 0.5, randf() - 0.5).normalized()
+				
+				# Se houver sobreposicao fisica (sem a margem), corrigir posicao
+				if dist < (r1 + r2):
+					var physical_overlap = (r1 + r2) - dist
+					var separation = normal * (physical_overlap * 0.5)
+					if not p1.dragging: c1.position += separation
+					if not p2.dragging: c2.position -= separation
+				
+				# Forca de repulsao baseada na proximidade (quanto mais perto, mais forte)
+				# Isso cria um campo de forca ao redor das bolhas
+				var force_strength = 50.0 * (overlap / min_dist)
+				
+				if not p1.dragging:
+					p1.velocity += normal * force_strength
+				if not p2.dragging:
+					p2.velocity -= normal * force_strength
+
+	# Garantir que nao saiam dos limites apos colisao
+	for p in pairings:
+		if p.locked or p.dragging: continue
+		
+		var c = p.circle
+		var pos = c.position
+		var c_size = c.size * c.scale
+		
+		if pos.x < bounds.position.x: pos.x = bounds.position.x
+		elif pos.x + c_size.x > bounds.position.x + bounds.size.x: pos.x = bounds.position.x + bounds.size.x - c_size.x
+		
+		if pos.y < bounds.position.y: pos.y = bounds.position.y
+		elif pos.y + c_size.y > bounds.position.y + bounds.size.y: pos.y = bounds.position.y + bounds.size.y - c_size.y
+		
+		c.position = pos
 
 func finalize_game():
 	is_finished = true

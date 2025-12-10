@@ -74,78 +74,73 @@ frame = 4
 metadata/_edit_lock_ = true
 
 [node name="AreaLimite" type="ReferenceRect" parent="Interacoes"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 8.167001
 anchor_top = 6.406
 anchor_right = 24.322
 anchor_bottom = 16.2
-offset_left = 0.3199768
-offset_top = -0.23999023
+offset_left = 12.319977
+offset_top = 44.76001
 offset_right = 0.11999512
 offset_bottom = -65.0
 border_color = Color(1, 1, 1, 1)
+metadata/_edit_lock_ = true
 
 [node name="Circ_igualdade" type="TextureRect" parent="Interacoes"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 19.85
+anchor_left = 14.825001
 anchor_top = 8.125
-anchor_right = 22.35
+anchor_right = 17.325
 anchor_bottom = 10.625001
-offset_left = -411.0
-offset_right = -411.0
 offset_bottom = -3.0517578e-05
 texture = ExtResource("2_4m46k")
 
 [node name="Circ_presenvacao" type="TextureRect" parent="Interacoes"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 17.25
+anchor_left = 14.775001
 anchor_top = 8.125
-anchor_right = 19.75
-anchor_bottom = 10.6
-offset_left = -228.0
-offset_top = 80.0
-offset_right = -228.0
-offset_bottom = 81.0
+anchor_right = 17.35
+anchor_bottom = 10.85
+offset_left = 2.0
+offset_right = -1.0
+offset_bottom = -9.0
 texture = ExtResource("3_vqfq3")
 
 [node name="Circ_tecnologia" type="TextureRect" parent="Interacoes"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 16.400002
-anchor_top = 10.85
-anchor_right = 18.900002
-anchor_bottom = 13.35
+anchor_left = 15.425001
+anchor_top = 8.125
+anchor_right = 17.95
+anchor_bottom = 10.625001
 offset_left = -6.1035156e-05
-offset_right = -6.1035156e-05
+offset_right = -1.0
+offset_bottom = -3.0517578e-05
 texture = ExtResource("4_8kdit")
 
 [node name="Circ_democracia" type="TextureRect" parent="Interacoes"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 12.075001
-anchor_top = 8.125
-anchor_right = 14.650001
-anchor_bottom = 10.625001
-offset_left = 360.99997
-offset_right = 358.0
-offset_bottom = -3.0517578e-05
+anchor_left = 16.125
+anchor_top = 9.175
+anchor_right = 18.625
+anchor_bottom = 11.675
 texture = ExtResource("5_ew34d")
 
 [node name="Circ_educa" type="TextureRect" parent="Interacoes"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 9.625
-anchor_top = 8.125
-anchor_right = 12.125001
-anchor_bottom = 10.625001
-offset_left = 459.0
-offset_top = 109.0
-offset_right = 458.99997
-offset_bottom = 108.99997
+anchor_left = 8.200001
+anchor_top = 10.6
+anchor_right = 10.975
+anchor_bottom = 13.125001
+offset_left = 216.99997
+offset_top = -99.0
+offset_right = 206.0
+offset_bottom = -100.00006
 texture = ExtResource("6_ytrj8")
 
 [node name="Igualdade" type="TextureRect" parent="Interacoes"]
