@@ -89,7 +89,7 @@ func _process(delta):
 	var tilt = Vector2.ZERO
 	var accel = Input.get_accelerometer()
 	if accel != Vector3.ZERO:
-		tilt = Vector2(accel.x, -accel.y) * tilt_speed * delta
+		tilt = Vector2(-accel.x, -accel.y) * tilt_speed * delta
 
 	var keyboard_input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if keyboard_input != Vector2.ZERO:

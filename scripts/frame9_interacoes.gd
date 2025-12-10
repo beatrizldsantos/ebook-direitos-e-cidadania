@@ -129,7 +129,7 @@ func _process(delta):
 	
 	var accel = Input.get_accelerometer()
 	if accel != Vector3.ZERO:
-		gravity = Vector2(accel.x, -accel.y) * 200.0
+		gravity = Vector2(accel.x, -accel.y) * 1000.0
 		
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if input_dir != Vector2.ZERO:
