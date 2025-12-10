@@ -11,7 +11,7 @@ var pairings = []
 var gravity = Vector2(0, 100)
 var restitution = 0.6
 var damping = 0.98
-var tilt_speed = 1000.0
+var tilt_speed = 2000.0
 var touch_force = 10.0
 
 var pilares_preenchidos = 0
@@ -89,7 +89,7 @@ func _process(delta):
 	var tilt = Vector2.ZERO
 	var accel = Input.get_accelerometer()
 	if accel != Vector3.ZERO:
-		tilt = Vector2(-accel.x, accel.y) * tilt_speed * delta
+		tilt = Vector2(accel.x, -accel.y) * tilt_speed * delta
 
 	var keyboard_input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if keyboard_input != Vector2.ZERO:
@@ -175,7 +175,7 @@ func lock_piece(p):
 
 func resolve_collisions():
 	var bounds = area_node.get_rect()
-	var margin = 15.0 # Margem extra de seguranca
+	var margin = 15.0
 
 	for i in range(pairings.size()):
 		var p1 = pairings[i]
@@ -207,15 +207,12 @@ func resolve_collisions():
 				else:
 					normal = Vector2(randf() - 0.5, randf() - 0.5).normalized()
 				
-				# Se houver sobreposicao fisica (sem a margem), corrigir posicao
 				if dist < (r1 + r2):
 					var physical_overlap = (r1 + r2) - dist
 					var separation = normal * (physical_overlap * 0.5)
 					if not p1.dragging: c1.position += separation
 					if not p2.dragging: c2.position -= separation
 				
-				# Forca de repulsao baseada na proximidade (quanto mais perto, mais forte)
-				# Isso cria um campo de forca ao redor das bolhas
 				var force_strength = 50.0 * (overlap / min_dist)
 				
 				if not p1.dragging:
@@ -223,7 +220,6 @@ func resolve_collisions():
 				if not p2.dragging:
 					p2.velocity -= normal * force_strength
 
-	# Garantir que nao saiam dos limites apos colisao
 	for p in pairings:
 		if p.locked or p.dragging: continue
 		

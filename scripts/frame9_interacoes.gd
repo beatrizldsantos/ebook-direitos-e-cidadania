@@ -6,7 +6,7 @@ extends Node2D
 @onready var balloons_container = $Interacoes/Balao
 @onready var interacoes = $Interacoes
 
-var particle_count = 15 
+var particle_count = 15
 var particle_speed_min = 80.0
 var particle_speed_max = 150.0
 var particle_radius = 8.0
@@ -16,16 +16,14 @@ var particles_agents: Array[Area2D] = []
 var active_counts = {}
 
 func _ready():
-	
 	for child in balloons_container.get_children():
 		active_counts[child.name] = 0
 		child.visible = false
-		child.modulate.a = 0.0 
+		child.modulate.a = 0.0
 	_setup_cards()
 	_setup_particles()
 
 func _setup_cards():
-
 	var map = {
 		"combateAsFake": "balao_fakenews",
 		"informacaoconfiavel": "balao_informacaoconfiavel",
@@ -54,7 +52,6 @@ func _setup_cards():
 			area.area_exited.connect(_on_card_area_exited.bind(map[card.name]))
 
 func _setup_particles():
-	
 	var cpu_particles = CPUParticles2D.new()
 	cpu_particles.name = "VisualParticles"
 	
@@ -132,7 +129,7 @@ func _process(delta):
 	
 	var accel = Input.get_accelerometer()
 	if accel != Vector3.ZERO:
-		gravity = Vector2(-accel.x, accel.y) * 200.0
+		gravity = Vector2(accel.x, -accel.y) * 200.0
 		
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if input_dir != Vector2.ZERO:
@@ -148,7 +145,7 @@ func _process(delta):
 			center_mass /= particles_agents.size()
 			cpu_particles.position = center_mass
 	
-	var cohesion_strength = 2.0 
+	var cohesion_strength = 2.0
 	var max_speed = 400.0
 	var friction = 0.96
 	
