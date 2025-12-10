@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bo4r6a78x4m81"]
+[gd_scene load_steps=19 format=3 uid="uid://bo4r6a78x4m81"]
 
 [ext_resource type="Texture2D" uid="uid://dn1vqkeciu3hk" path="res://assets/images/Components_Frame 7/Circ_igualdade.png" id="2_4m46k"]
+[ext_resource type="Texture2D" uid="uid://b1nykv00up7xi" path="res://assets/images/Components_Frame 7/spritesheets.png" id="3_ew34d"]
 [ext_resource type="Texture2D" uid="uid://dx20txr7feo2f" path="res://assets/images/Components_Frame 7/Circ_presenv.png" id="3_vqfq3"]
 [ext_resource type="Texture2D" uid="uid://esbtl2sb6dgv" path="res://assets/images/Components_Frame 7/Circ_tecnologia.png" id="4_8kdit"]
 [ext_resource type="Texture2D" uid="uid://cdfopk5gj6w6n" path="res://assets/button/ant_capa.png" id="4_vdvws"]
@@ -14,7 +15,21 @@
 [ext_resource type="Texture2D" uid="uid://c8ne1tc180tfq" path="res://assets/images/Components_Frame 7/Tecnologia.png" id="9_h1ojk"]
 [ext_resource type="Texture2D" uid="uid://da5sfpi6xavgx" path="res://assets/images/Components_Frame 7/Democracia.png" id="10_25lyf"]
 [ext_resource type="Texture2D" uid="uid://c5r3n2v8t7ugv" path="res://assets/images/Components_Frame 7/Educacao.png" id="11_0lw54"]
-[ext_resource type="Script" uid="uid://vtnvp145j5v3" path="res://scripts/frame7_interactions.gd" id="12_custom"]
+[ext_resource type="Script" uid="uid://vtnvp145j5v3" path="res://scripts/frame7_interacoes.gd" id="12_custom"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hfr50"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8kdit"]
+bg_color = Color(0.9426236, 0.752795, 0.8697383, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="Frame7_tscn" type="Node2D" groups=["page7"]]
 
@@ -37,7 +52,29 @@ offset_bottom = 40.0
 script = ExtResource("12_custom")
 metadata/_edit_use_anchors_ = true
 
+[node name="Sprit2dPanel" type="Panel" parent="Interacoes"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 13.625001
+anchor_top = 8.1
+anchor_right = 18.900002
+anchor_bottom = 12.000001
+offset_left = -6.1035156e-05
+offset_right = -6.000061
+offset_bottom = -3.0517578e-05
+theme_override_styles/panel = SubResource("StyleBoxFlat_hfr50")
+
+[node name="construcao" type="Sprite2D" parent="Interacoes/Sprit2dPanel"]
+position = Vector2(101.74998, 28.75002)
+scale = Vector2(0.36145645, 0.3115246)
+texture = ExtResource("3_ew34d")
+hframes = 5
+frame = 4
+metadata/_edit_lock_ = true
+
 [node name="AreaLimite" type="ReferenceRect" parent="Interacoes"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 8.167001
@@ -209,22 +246,32 @@ texture = ExtResource("11_0lw54")
 [node name="MensagemFinal" type="Panel" parent="Interacoes"]
 visible = false
 layout_mode = 0
-offset_left = 312.0
-offset_top = 334.0
-offset_right = 712.0
-offset_bottom = 434.0
+offset_left = 127.0
+offset_top = 276.0
+offset_right = 536.0
+offset_bottom = 560.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8kdit")
 
 [node name="Label" type="Label" parent="Interacoes/MensagemFinal"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 1.0
+offset_right = -33.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Quando os pilares da cidadania estão equilibrados, o futuro se torna mais justo e democrático."
+theme_override_colors/font_color = Color(0, 0.004877629, 0.026925363, 1)
+theme_override_constants/line_spacing = 1
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 18
+text = "Quando os pilares da cidadania estão em equilíbrio, os indivíduos têm seus direitos garantidos: as casas se constroem, as ruas ganham vida, as árvores crescem e as pessoas ocupam a cidade, mostrando que educação, democracia, tecnologia, preservação ambiental e igualdade constroem uma sociedade mais justa e democrática."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainerBotao" type="VBoxContainer" parent="."]
 offset_left = 328.0

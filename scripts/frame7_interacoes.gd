@@ -2,9 +2,10 @@ extends Control
 
 @onready var area_node = $AreaLimite
 var btn_proximo: Button
-@onready var sfx_fit = $SFX_Fit
-@onready var sfx_win = $SFX_Win
 @onready var msg_panel = $MensagemFinal
+@onready var city_sprite = $Sprit2dPanel/construcao
+@onready var sfx_fit = get_node_or_null("SFX_Fit")
+@onready var sfx_win = get_node_or_null("SFX_Win")
 
 var pairings = []
 # Structure: { "circle": Node, "target": Node, "locked": bool, "velocity": Vector2, "dragging": bool }
@@ -15,16 +16,22 @@ var damping = 0.98
 var tilt_speed = 1000.0
 var touch_force = 10.0
 
-# State
 var pilares_preenchidos = 0
 var total_pilares = 5
 var is_finished = false
+var original_city_scale = Vector2.ONE
 
 func _ready():
+	if city_sprite:
+		original_city_scale = city_sprite.scale
+		city_sprite.visible = false
+		city_sprite.frame = 0
+	
 	call_deferred("init_game")
 
 func init_game():
 	btn_proximo = get_node_or_null("../VBoxContainerBotao/HBoxContainer/proximo")
+	
 	var map = {
 		"Circ_igualdade": "Igualdade",
 		"Circ_presenvacao": "Preservacao",
@@ -51,7 +58,6 @@ func init_game():
 		msg_panel.visible = false
 		msg_panel.modulate.a = 0
 	
-	# Enable next button (User request: unlocked by default)
 	if btn_proximo:
 		btn_proximo.disabled = false
 		btn_proximo.visible = true
@@ -62,14 +68,12 @@ func _process(delta):
 
 	var tilt = Vector2.ZERO
 	var accel = Input.get_accelerometer()
-	
 	if accel != Vector3.ZERO:
 		tilt = Vector2(-accel.x, accel.y) * tilt_speed * delta
-	
+
 	var keyboard_input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if keyboard_input != Vector2.ZERO:
 		tilt += keyboard_input * tilt_speed * delta
-
 
 	var bounds = area_node.get_rect()
 	
@@ -80,7 +84,7 @@ func _process(delta):
 		var circle: TextureRect = p.circle
 		
 		if p.dragging:
-			pass
+			pass 
 		else:
 			p.velocity += gravity * delta
 			p.velocity += tilt
@@ -144,12 +148,32 @@ func lock_piece(p):
 		sfx_fit.play()
 	
 	pilares_preenchidos += 1
-	if pilares_preenchidos >= total_pilares:
-		complete_level()
-
-func complete_level():
-	is_finished = true
 	
+	advance_city_stage(pilares_preenchidos - 1)
+	
+	if pilares_preenchidos >= total_pilares:
+		var t = create_tween()
+		t.tween_interval(0.5)
+		t.tween_callback(finalize_game)
+
+func advance_city_stage(frame_idx):
+	if city_sprite:
+		city_sprite.visible = true
+		city_sprite.frame = frame_idx
+		
+		city_sprite.scale = Vector2.ZERO
+		city_sprite.modulate.a = 0
+		
+		var tween = create_tween()
+		tween.tween_property(city_sprite, "scale", original_city_scale, 0.3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+		tween.parallel().tween_property(city_sprite, "modulate:a", 1.0, 0.3)
+
+func finalize_game():
+	if city_sprite:
+		var pulse = create_tween()
+		pulse.tween_property(city_sprite, "scale", original_city_scale * 1.1, 0.2)
+		pulse.tween_property(city_sprite, "scale", original_city_scale, 0.2)
+
 	if sfx_win and sfx_win.stream:
 		sfx_win.play()
 		
